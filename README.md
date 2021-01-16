@@ -1,5 +1,12 @@
 # wiwy-covid19-project
 
+# How to start
+
+package manager를 가지고 있어야 함(npm or yarn)
+
+- express module 다운로드
+  yarn add express
+
 # public
 
 정적인 파일들을 모아놓는 곳
