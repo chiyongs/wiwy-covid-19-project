@@ -11,7 +11,8 @@ const cheerio = require('cheerio');
 
     let data = await page.evaluate(() => {
 
-        let title = document.querySelector('#content > div > div:nth-child(7) > table > tbody > tr:nth-child(3) > td:nth-child(3)').innerText;
+        let title = document.querySelector('#content > div > div:nth-child(7) > table > tbody > tr:nth-child(2) > th:nth-child(1)');
+        let name = title.textContent;
         
         return {
             title
