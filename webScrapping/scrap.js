@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 
 (async () => {
     
-    let urlurl = 'http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=14&ncvContSeq=&contSeq=&board_id=&gubun=';
+    let url = 'http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=14&ncvContSeq=&contSeq=&board_id=&gubun=';
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
 
