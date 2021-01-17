@@ -1,54 +1,43 @@
-const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
+const request = require('request');
 
-(async () => {
-    
-    let url = 'http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=14&ncvContSeq=&contSeq=&board_id=&gubun=';
-    let browser = await puppeteer.launch();
-    let page = await browser.newPage();
+request('http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=11&ncvContSeq=&contSeq=&board_id=&gubun=', (error, response, html) => {
+    if (!error && response.statusCode == 200){
+        const $ = cheerio.load(html);
 
-    await page.goto(url, { waitUntil: 'networkidle2'});
+        const siteHeading = $('.data_table.mgt16');
 
-    let data = await page.evaluate(() => {
-
-        let title = document.querySelector('#content > div > div:nth-child(7) > table > tbody > tr:nth-child(2) > th:nth-child(1)');
-        let name = title.textContent;
+        // console.log(siteHeading.html());
+        // console.log(siteHeading.text());
+        const output = siteHeading.find('td').text();
+        // const output = siteHeading.children('td').text();
         
-        return {
-            title
-        }
-    });
-    console.log(data);
 
-    debugger;
+        console.log(output);
+    }
+});
 
-    await browser.close();
-
-})();
-
-// (async() => {
-//     const browser = await puppeteer.launch ({ headless: false });
-//     const page = await browser.newPage();
-//     await page.goto("http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=14&ncvContSeq=&contSeq=&board_id=&gubun=");
-//     const content  = await page.content();
-//     const $ = cheerio.load(content);
-//     const lists = $("#content > div > div.data_table.mgt16.tbl_scrl_mini2.mini > table");
-//     lists.each((index, list) => {
-//         const name = $(list).find("#content > div > div.data_table.mgt16.tbl_scrl_mini2.mini > table > tbody > tr:nth-child(1) > th").text();
-//         console.log({
-//             index, name
-//         });
-//     });
+// (async () => {
     
-//     browser.close();
+//     let url = 'http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=14&ncvContSeq=&contSeq=&board_id=&gubun=';
+//     let browser = await puppeteer.launch();
+//     let page = await browser.newPage();
+
+//     await page.goto(url, { waitUntil: 'networkidle2'});
+
+//     let data = await page.evaluate(() => {
+
+//         let title = document.querySelector('#content > div > div:nth-child(7)').textContent;
+        
+//         return {
+//             title : title
+//         }
+//     });
+//     console.log(data);
+
+//     debugger;
+
+//     await browser.close();
+
 // })();
 
-// async function main(){
-//     let browser = await puppeteer.launch({ headless: false });
-//     let page = await browser.newPage();
-//     await page.goto("http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=14&ncvContSeq=&contSeq=&board_id=&gubun=");
-//     // let eh = await page.$("div.data_table.mgt16");
-//     // eh.$eval('')
-// }
-
-// main();
