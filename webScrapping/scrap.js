@@ -9,11 +9,28 @@ request('http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=11&ncvContS
 
         // console.log(siteHeading.html());
         // console.log(siteHeading.text());
-        const output = siteHeading.find('td').text();
+        // const output = siteHeading.find('td').text();
         // const output = siteHeading.children('td').text();
+        // const output = siteHeading
+        // .children('td')
+        // .next()
+        // .text();
         
+        // const output = siteHeading
+        // .children('td')
+        // .parent()
+        // .text();
 
-        console.log(output);
+        $('.data_table.mgt16').each((i, el) => {
+            const item = $(el)
+            .text()
+            .replace(/\s\s+/g, '');
+            
+            console.log(item);
+
+        });
+
+        // console.log(output);
     }
 });
 
