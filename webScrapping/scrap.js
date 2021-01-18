@@ -1,12 +1,16 @@
 const cheerio = require('cheerio');
 const request = require('request');
+const fs = require('fs');
+const writeStream = fs.createWriteStream('Overseas inflow patient status.json');
+
+// Write Headers
+writeStream.write(`Name,Value \n`);
 
 request('http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=11&ncvContSeq=&contSeq=&board_id=&gubun=', (error, response, html) => {
     if (!error && response.statusCode == 200){
         const $ = cheerio.load(html);
 
-        const siteHeading = $('.data_table.mgt16');
-
+        // const siteHeading = $('.data_table.mgt16');
         // console.log(siteHeading.html());
         // console.log(siteHeading.text());
         // const output = siteHeading.find('td').text();
@@ -22,15 +26,24 @@ request('http://ncov.mohw.go.kr/bdBoardList_Real.do?brdId=1&brdGubun=11&ncvContS
         // .text();
 
         $('.data_table.mgt16').each((i, el) => {
-            const item = $(el)
-            .text()
-            .replace(/\s\s+/g, '');
+            // const item = $(el)
+            // .text()
+            // .replace(/\s\s+/g, '');
             
-            console.log(item);
+            const name = $(el)
+            .find('.data_table.mgt16 th')
+            .text();
 
+            const value = $(el)
+            .find('.data_table.mgt16 td')
+            .text();
+
+            // console.log(name, value);
+            //Write Row to csv
+            writeStream.write(`${name}, ${value} \n`);
         });
 
-        // console.log(output);
+        console.log('Scrapping Done');
     }
 });
 
