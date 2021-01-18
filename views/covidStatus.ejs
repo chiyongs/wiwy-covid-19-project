@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title><%= title %> 코로나 현황</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
@@ -10,6 +10,6 @@
     <h1><%= title %></h1>
     <p><%= title %>'s Covid19 project</p>
     <p>Chiyong, Jihyeon, Junyeop</p>
-    <img src="/images/7.jpg" width="300px" />
+    <% include ../views/chart %>
   </body>
 </html>

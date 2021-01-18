@@ -4,10 +4,11 @@
 <script>
   const ctx = document.getElementById("myChart").getContext("2d");
   const apple = [1, 2, 3, 4, 5, 6];
+  const color = ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"];
   const myChart = new Chart(ctx, {
     type: "bar",
     data: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      labels: color,
       datasets: [
         {
           label: "# of Votes",
