@@ -4,9 +4,74 @@
     <title><%= title %></title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+
   </head>
   <body>
-    <% include ../views/navbar %>
+    <% include ../views/header %> <% include ../views/navbar %>
+    <div class="section">
+      <input type="radio" name="slide" id="slide01" checked>
+      <input type="radio" name="slide" id="slide02">
+      <input type="radio" name="slide" id="slide03">
+      <div class="slidewrap">
+        <ul class="slidelist">
+          <li class="slideitem">
+            <a>
+              <div class="textbox">
+                <h3>첫번째 슬라이드</h3>
+                <p>첫번째 슬라이드 입니다.</p>
+              </div>
+              <img src="./images/1.jpg" width="5000px" height="500px">
+            </a>
+          </li>
+          <li class="slideitem">
+            <a>
+              
+              <div class="textbox">
+                <h3>두번째 슬라이드</h3>
+                <p>두번째 슬라이드 입니다.</p>
+              </div>
+              <img src="./images/2.jpg" width="5000px" height="500px">
+            </a>
+          </li>
+          <li class="slideitem">
+            <a>
+              
+              <div class="textbox">
+                <h3>두번째 슬라이드</h3>
+                <p>두번째 슬라이드 입니다.</p>
+              </div>
+              <img src="./images/3.jpg" width="5000px" height="500px">
+            </a>
+          </li class="slideitem">
+    
+          <!-- 좌,우 슬라이드 버튼 -->
+          <div class="slide-control">
+            <div>
+              <label for="slide03" class="left"></label>
+              <label for="slide02" class="right"></label>
+            </div>
+            <div>
+              <label for="slide01" class="left"></label>
+              <label for="slide03" class="right"></label>
+            </div>
+            <div>
+              <label for="slide02" class="left"></label>
+              <label for="slide01" class="right"></label>
+            </div>
+          </div>
+    
+        </ul>
+        <!-- 페이징 -->
+        <ul class="slide-pagelist">
+          <li><label for="slide01"></label></li>
+          <li><label for="slide02"></label></li>
+          <li><label for="slide03"></label></li>
+        </ul>
+      </div>
+    
+      
+    </div>
+    
     <h1><%= title %></h1>
     <p><%= title %>'s Covid19 project</p>
     <p>Chiyong, Jihyeon, Junyeop</p>
