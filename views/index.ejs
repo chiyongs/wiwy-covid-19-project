@@ -4,32 +4,31 @@
     <title><%= title %></title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <link rel="stylesheet" href="/stylesheets/style.css" />
-
   </head>
   <body>
     <% include ../views/header %> <% include ../views/navbar %>
     <div class="section">
-      <input type="radio" name="slide" id="slide01" checked>
-      <input type="radio" name="slide" id="slide02">
-      <input type="radio" name="slide" id="slide03">
+      <input type="radio" name="slide" id="slide01" checked />
+      <input type="radio" name="slide" id="slide02" />
+      <input type="radio" name="slide" id="slide03" />
       <div class="slidewrap">
         <ul class="slidelist">
           <li class="slideitem">
             <a>
-              <img src="./images/1.jpg" width="5000px" height="300px">
+              <img src="./images/1.jpg" width="5000px" height="300px" />
             </a>
           </li>
           <li class="slideitem">
-            <a>             
-              <img src="./images/2.jpg" width="5000px" height="300px">
+            <a>
+              <img src="./images/2.jpg" width="5000px" height="300px" />
             </a>
           </li>
           <li class="slideitem">
-            <a>      
-              <img src="./images/3.jpg" width="5000px" height="300px">
+            <a>
+              <img src="./images/3.jpg" width="5000px" height="300px" />
             </a>
-          </li class="slideitem">
-    
+          </li>
+
           <!-- 좌,우 슬라이드 버튼 -->
           <div class="slide-control">
             <div>
@@ -45,7 +44,6 @@
               <label for="slide01" class="right"></label>
             </div>
           </div>
-    
         </ul>
         <!-- 페이징 -->
         <ul class="slide-pagelist">
@@ -53,10 +51,27 @@
           <li><label for="slide02"></label></li>
           <li><label for="slide03"></label></li>
         </ul>
-      </div>  
+      </div>
     </div>
     <div class="youtube-section">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/s44zIIHSoV4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    <p>Chiyong, Jihyeon, Junyeop</p>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/bm4Xjq2aBNg"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <div class="text">
+        <p>신종 코로나바이러스감염증</p>
+        <h3>모두함께</h3>
+        <h1>이겨냅시다!</h1>
+        <button type="button" class="plusbtn">
+          <img src="./images/btn.jpg" width="100%" height="100%" />
+        </button>
+      </div>
+    </div>
+    <p>Chiyong, Jihyeon, Junyeop</p>
     <img src="/images/7.jpg" width="300px" />
   </body>
 </html>
