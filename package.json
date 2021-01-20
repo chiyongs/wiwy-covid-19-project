@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "chart.js": "^2.9.4",
     "cheerio": "^1.0.0-rc.5",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -14,7 +15,10 @@
     "helmet": "^4.4.0",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
     "puppeteer": "^5.5.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "xml-js": "^1.6.11",
+    "xmlhttprequest": "^1.8.0"
   }
 }
