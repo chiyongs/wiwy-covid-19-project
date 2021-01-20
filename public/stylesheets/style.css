@@ -6,11 +6,12 @@ body {
 }
 
 .navbar {
-  top: 0;
   left: 0;
   background-color: #3a3a3a;
   width: 100%;
   height: 48px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .navbar .routesLists {
@@ -26,14 +27,32 @@ body {
   font-size: 20px;
 }
 
-.navbar .routesLink-text {
+.navbar .routesLink-text span {
   color: white;
+  padding-top: 0px;
 }
 
 .logotitle {
-  margin: 20px 20px 20px 20px;
+  margin: 0px 0px 0px 0px;
+  background-color: #3a3a3a;
+  padding-bottom: 40px;
 }
 
+.logotitle h1 {
+  margin: 0px 0px 0px 0px;
+  color: white;
+  font-weight: bold;
+  filter: drop-shadow(5px 5px 5px #100);
+  font-size: 50px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logotitle img {
+  position: relative;
+  left: 50px;
+  top: 70px;
+}
 a:link {
   text-decoration: none;
 }
@@ -49,9 +68,6 @@ a:hover {
 .section input[id*="slide"] {
   display: none;
 }
-/* .section .slidewrap {
-  max-width: 5000px;
-} */
 
 .section .slidelist {
   white-space: nowrap;
@@ -72,6 +88,7 @@ a:hover {
 }
 .section .slidelist > li > a img {
   width: 100%;
+  z-index: -1;
 }
 .section .slidelist label {
   position: absolute;
@@ -80,28 +97,6 @@ a:hover {
   transform: translateY(-50%);
   padding: 50px;
   cursor: pointer;
-}
-.section .slidelist .textbox {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  line-height: 1.6;
-  text-align: center;
-}
-.section .slidelist .textbox h3 {
-  font-size: 36px;
-  color: #fff;
-  transform: translateY(30px);
-  transition: all 0.5s;
-}
-.section .slidelist .textbox p {
-  font-size: 16px;
-  color: #fff;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.5s;
 }
 
 /* input에 체크되면 슬라이드 효과 */
@@ -115,50 +110,20 @@ a:hover {
   transform: translateX(-200%);
 }
 
-/* input에 체크되면 텍스트 효과 */
-.section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .textbox h3 {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.2s;
-}
-.section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .textbox p {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.4s;
-}
-.section input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .textbox h3 {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.2s;
-}
-.section input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .textbox p {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.4s;
-}
-.section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .textbox h3 {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.2s;
-}
-.section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .textbox p {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.4s;
-}
-
 /* 좌,우 슬라이드 버튼 */
 .slide-control > div {
   display: none;
 }
-/* .section .left {
+.section .left {
   left: 30px;
-  background: url("./img/left.png") center center / 100% no-repeat;
+  background: url("../images/left.png") center center / 100% no-repeat;
+  filter: drop-shadow(5px 5px 5px #100);
 }
 .section .right {
   right: 30px;
-  background: url("./img/right.png") center center / 100% no-repeat;
-} */
+  background: url("../images/right.png") center center / 100% no-repeat;
+  filter: drop-shadow(5px 5px 5px #100);
+}
 .section
   input[id="slide01"]:checked
   ~ .slidewrap
@@ -221,4 +186,8 @@ a:hover {
   > li:nth-child(3)
   > label {
   background: #999;
+}
+
+.youtube-section {
+  background-color: gray;
 }
