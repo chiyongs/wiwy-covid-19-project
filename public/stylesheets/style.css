@@ -191,3 +191,16 @@ a:hover {
 .youtube-section {
   background-color: gray;
 }
+
+.plusbtn {
+  border: none;
+  width: 350px;
+  height: 70px;
+  cursor: pointer;
+  padding: 0px 0px 0px 0px;
+}
+
+.text {
+  font-family: "굴림";
+  font-weight: bold;
+}
