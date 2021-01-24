@@ -3,6 +3,7 @@ body {
   padding: 0;
   display: block;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: black;
 }
 
 .navbar {
@@ -38,14 +39,29 @@ body {
   padding-bottom: 40px;
 }
 
-.logotitle h1 {
+h1 {
   margin: 0px 0px 0px 0px;
   color: white;
+  /* font-weight: bold;
+  filter: drop-shadow(5px 5px 5px #100); */
+  font-size: 4rem;
   font-weight: bold;
-  filter: drop-shadow(5px 5px 5px #100);
-  font-size: 50px;
   text-align: center;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 3px;
+  font-family: "Anton", sans-serif;
+  background: url("../images/background.jpg");
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate 7s linear infinite;
+}
+@keyframes animate {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50% 0%;
+  }
 }
 
 .logotitle img {
@@ -190,6 +206,19 @@ a:hover {
 
 .youtube-section {
   background-color: gray;
+  height: 500px;
+  padding-top: 20px;
+}
+
+.youtube {
+  display: inline-block;
+  float: left;
+  height: 300px;
+
+  padding-left: 100px;
+  padding-right: 50px;
+  margin-left: 200px;
+  margin-right: 20px;
 }
 
 .plusbtn {
@@ -198,9 +227,11 @@ a:hover {
   height: 70px;
   cursor: pointer;
   padding: 0px 0px 0px 0px;
+  display: block;
 }
 
 .text {
-  font-family: "굴림";
-  font-weight: bold;
+  display: inline-block;
+  height: 300px;
+  width: 40%;
 }
