@@ -116,14 +116,17 @@ a:hover {
 }
 
 /* input에 체크되면 슬라이드 효과 */
-.section input[id="slide01"]:checked ~ .slidewrap .slidelist > li {
+.section input[id="slide01"]:checked ~ .slidewrap .slidelist {
   transform: translateX(0%);
+  animation: slide01 10s infinite;
 }
-.section input[id="slide02"]:checked ~ .slidewrap .slidelist > li {
+.section input[id="slide02"]:checked ~ .slidewrap .slidelist {
   transform: translateX(-100%);
+  animation: slide02 10s infinite;
 }
-.section input[id="slide03"]:checked ~ .slidewrap .slidelist > li {
+.section input[id="slide03"]:checked ~ .slidewrap .slidelist {
   transform: translateX(-200%);
+  animation: slide03 10s infinite;
 }
 
 /* 좌,우 슬라이드 버튼 */
@@ -234,4 +237,73 @@ a:hover {
   display: inline-block;
   height: 300px;
   width: 40%;
+}
+@keyframes slide01 {
+  0% {
+    left: 0%;
+  }
+  31% {
+    left: 0%;
+  }
+  33% {
+    left: -100%;
+  }
+  64% {
+    left: -100%;
+  }
+  66% {
+    left: -200%;
+  }
+  98% {
+    left: -200%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+@keyframes slide02 {
+  0% {
+    left: 0%;
+  }
+  31% {
+    left: 0%;
+  }
+  33% {
+    left: -100%;
+  }
+  64% {
+    left: -100%;
+  }
+  66% {
+    left: 100%;
+  }
+  98% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+@keyframes slide03 {
+  0% {
+    left: 0%;
+  }
+  31% {
+    left: 0%;
+  }
+  33% {
+    left: 200%;
+  }
+  64% {
+    left: 200%;
+  }
+  66% {
+    left: 100%;
+  }
+  98% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
 }
