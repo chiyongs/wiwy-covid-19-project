@@ -32,12 +32,12 @@ queryParams +=
   "&" +
   encodeURIComponent("startCreateDt") +
   "=" +
-  encodeURIComponent("20210101"); /**/
+  encodeURIComponent("20210121"); /**/
 queryParams +=
   "&" +
   encodeURIComponent("endCreateDt") +
   "=" +
-  encodeURIComponent("20210120"); /**/
+  encodeURIComponent("20210127"); /**/
 xhr.open("GET", url + queryParams);
 xhr.onreadystatechange = function () {
   if (this.readyState == 4) {

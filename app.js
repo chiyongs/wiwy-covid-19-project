@@ -14,6 +14,8 @@ const app = express();
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+// html 렌더링을 가능하게 해줌
+app.engine("html", require("ejs").renderFile);
 
 app.use(
   helmet.contentSecurityPolicy({

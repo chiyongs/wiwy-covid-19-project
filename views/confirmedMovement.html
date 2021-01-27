@@ -3,10 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <title>확진자 동선</title>
   </head>
   <body>
     <% include ../views/navbar %>
     <h1>확진자 동선</h1>
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+    <script src="/javascripts/ccc.js"></script>
   </body>
 </html>
