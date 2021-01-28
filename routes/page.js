@@ -69,7 +69,9 @@ function calculateSeq() {
 }
 
 router.get("/main", (req, res, next) => {
-  res.render("main");
+  res.render("main", {
+    title: "WIWY",
+  });
 });
 
 router.get("/covidStatus", (req, res, next) => {
