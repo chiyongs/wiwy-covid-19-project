@@ -2,6 +2,7 @@
 const express = require("express");
 const router = express.Router();
 let moment = require("moment");
+const dbconnection = require("../conf/db_info");
 const ONUL = "2021-01-27";
 const dbConObj = require("../conf/db_info");
 const dbconn = dbConObj.init();
@@ -11,24 +12,48 @@ const resultConv = (result) => {
   for (let i = 0; i < result.length; i++) {
     resultList[i] = result[i].defCnt;
   }
-  // console.log(resultList);
   return resultList;
+};
+
+const cityListConv = (result) => {
+  let cityList = [];
+  for (let i = 0; i < result.length; i++) {
+    cityList[i] = result[i].gubun;
+  }
+  return cityList;
+};
+const cityCountConv = (result) => {
+  let cityCount = [];
+  for (let i = 0; i < result.length; i++) {
+    cityCount[i] = result[i].defCnt;
+  }
+  return cityCount;
 };
 
 function calculateSeq() {
   let count = moment().diff(moment(ONUL), "days") * 19;
-  TOTALDEFCOUNT += count;
+  if (TOTALDEFCOUNT == 7152) {
+    TOTALDEFCOUNT += count;
+  }
   return TOTALDEFCOUNT;
 }
 
 router.get("/covidStatus", (req, res, next) => {
-  // covidStatus.status();
-  const sql = `SELECT defCnt FROM Covid202101 WHERE gubun='합계' and seq >='${calculateSeq()}'`;
-  dbconn.query(sql, (error, results, fields) => {
+  const seqNum = calculateSeq();
+  const totalCovidSql = `SELECT defCnt FROM Covid202101 WHERE gubun='합계' and seq >='${seqNum}'`;
+  const cityCovidSql = `SELECT gubun,defCnt FROM Covid202101 WHERE seq >='${seqNum}' and gubun != '합계'`;
+  dbconn.query(totalCovidSql, (error, totalCovidResults, fields) => {
+    const totalCovidData = totalCovidResults;
     if (error) throw error;
-    res.render("covidStatus.html", {
-      title: "WIWY",
-      totalData: resultConv(results),
+    dbconn.query(cityCovidSql, (error, cityCovidResults, fields) => {
+      const cityCovidData = cityCovidResults;
+      if (error) throw error;
+      res.render("covidStatus.html", {
+        title: "WIWY",
+        totalData: resultConv(totalCovidData),
+        cityList: cityListConv(cityCovidData),
+        cityCount: cityCountConv(cityCovidData),
+      });
     });
   });
 });

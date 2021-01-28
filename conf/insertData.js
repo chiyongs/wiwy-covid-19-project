@@ -3,12 +3,6 @@ var xhr = new XMLHttpRequest();
 var convert = require("xml-js");
 const url =
   "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson"; /*URL*/
-
-const year = new Date().getFullYear();
-const month = new Date().getMonth();
-const date = new Date().getDate();
-const PDATE = `${year}${month + 1 < 10 ? `0${month + 1}` : month}${date}`;
-
 const PASSWORD = "root1234";
 const mysql = require("mysql");
 const connection = mysql.createConnection({
@@ -17,6 +11,8 @@ const connection = mysql.createConnection({
   password: PASSWORD,
   database: "WiwyCovid",
 });
+let moment = require("moment");
+const TODAY = moment().format("YYYYMMDD");
 
 let xml = "";
 let queryParams =
@@ -32,12 +28,12 @@ queryParams +=
   "&" +
   encodeURIComponent("startCreateDt") +
   "=" +
-  encodeURIComponent("20210121"); /**/
+  encodeURIComponent(TODAY); /**/
 queryParams +=
   "&" +
   encodeURIComponent("endCreateDt") +
   "=" +
-  encodeURIComponent("20210127"); /**/
+  encodeURIComponent(TODAY); /**/
 xhr.open("GET", url + queryParams);
 xhr.onreadystatechange = function () {
   if (this.readyState == 4) {

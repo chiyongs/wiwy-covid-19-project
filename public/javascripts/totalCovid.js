@@ -1,5 +1,7 @@
-const inp = document.getElementById("js-covidData");
-const ctx = document.getElementById("totalCovidChart").getContext("2d");
+const inpTotal = document.getElementById("js-totalCovid");
+const totalCovidCtx = document
+  .getElementById("totalCovidChart")
+  .getContext("2d");
 const date = new Date();
 const firstMonth =
   new Date(date.getFullYear(), date.getMonth(), date.getDate() - 6).getMonth() +
@@ -64,8 +66,8 @@ function checkMonth(monthTemp) {
 }
 
 function renderChart() {
-  const splitData = inp.value.split(",");
-  var myChart = new Chart(ctx, {
+  const splitTotalData = inpTotal.value.split(",");
+  var myChart = new Chart(totalCovidCtx, {
     type: "line",
     data: {
       labels: [
@@ -80,7 +82,7 @@ function renderChart() {
       datasets: [
         {
           label: "대한민국 일별 확진자",
-          data: splitData,
+          data: splitTotalData,
           backgroundColor: [
             "rgba(255, 99, 132, 0.2)",
             "rgba(54, 162, 235, 0.2)",
@@ -118,8 +120,6 @@ function renderChart() {
 
 function init() {
   renderChart();
-  //   console.log(JSON.stringify(covidData));
 }
 
 init();
-// handleData();
