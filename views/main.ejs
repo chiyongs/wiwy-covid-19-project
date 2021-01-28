@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"
+      integrity="sha512-hZf9Qhp3rlDJBvAKvmiG+goaaKRZA6LKUO35oK6EsM0/kjPK32Yw7URqrq3Q+Nvbbt8Usss+IekL7CRn83dYmw=="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <% include ../views/header %> <% include ../views/navbar %>
+    <div class="content-section">
+        <div class="row">
+
+            <div class="col-sm-4 text-center">
+              <img src="./images/logo.jpg" height=150 class="img-rounded responsive" alt="">
+    
+    
+            </div>
+    
+            <div class="col-sm-4 text-center">
+    
+              <img src="./images/logo.jpg" alt="monyanglogo" width=80% height=80% class="img-rounded responsive" onclick="location.href='monyang_dog.html';">
+    
+            </div>
+    
+            <div class="col-sm-4">
+                <img src="./images/logo.jpg" height=150 class="img-rounded responsive" alt="">
+
+            </div>
+    </div>
+    <% include ../views/footer %>
+  </body>
+</html>
