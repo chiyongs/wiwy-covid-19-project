@@ -1,12 +1,42 @@
 // page routing 할 곳
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+var xhr = new XMLHttpRequest();
+var convert = require("xml-js");
+const url =
+  "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson"; /*URL*/
+const updateData = require("../conf/insertData");
 const express = require("express");
 const router = express.Router();
+const fs = require("fs");
+let logger = require("../conf/winston");
 let moment = require("moment");
-const dbconnection = require("../conf/db_info");
 const ONUL = "2021-01-27";
 const dbConObj = require("../conf/db_info");
 const dbconn = dbConObj.init();
 let TOTALDEFCOUNT = 7152;
+
+const handleUpdate = () => {
+  let dayToUpdate = moment().format("YYYY-MM-DD");
+  try {
+    fs.statSync(`./logs/update/${dayToUpdate}.log`);
+    console.log(`file or directory exists`);
+    fs.readFile(`./logs/update/${dayToUpdate}.log`, "utf8", (err, data) => {
+      if (err) throw err;
+      let updated = data.indexOf("Updating");
+      if (!updated && moment().hour() >= 10) {
+        updateData();
+        logger.notice("Updating Data Complete");
+        console.log("Did update");
+      } else {
+        console.log("Cant update");
+      }
+    });
+  } catch (err) {
+    if (err.code === "ENOENT") {
+      console.log(`file or directory does not exist`);
+    }
+  }
+};
 const resultConv = (result) => {
   let resultList = [];
   for (let i = 0; i < result.length; i++) {
@@ -39,6 +69,7 @@ function calculateSeq() {
 }
 
 router.get("/covidStatus", (req, res, next) => {
+  handleUpdate();
   const seqNum = calculateSeq();
   const totalCovidSql = `SELECT defCnt FROM Covid202101 WHERE gubun='합계' and seq >='${seqNum}'`;
   const cityCovidSql = `SELECT gubun,defCnt FROM Covid202101 WHERE seq >='${seqNum}' and gubun != '합계'`;
