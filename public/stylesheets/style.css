@@ -104,7 +104,7 @@ a:hover {
 }
 .section .slidelist > li > a img {
   width: 100%;
-  z-index: -1;
+  z-index: 1;
 }
 .section .slidelist label {
   position: absolute;
@@ -149,6 +149,7 @@ a:hover {
   .slide-control
   > div:nth-child(1) {
   display: block;
+  background: #999;
 }
 .section
   input[id="slide02"]:checked
@@ -156,6 +157,7 @@ a:hover {
   .slide-control
   > div:nth-child(2) {
   display: block;
+  background: #999;
 }
 .section
   input[id="slide03"]:checked
@@ -163,6 +165,7 @@ a:hover {
   .slide-control
   > div:nth-child(3) {
   display: block;
+  background: #999;
 }
 
 /* 페이징 */
@@ -182,7 +185,7 @@ a:hover {
   margin: 20px 10px;
   cursor: pointer;
 }
-.section
+/* .section
   input[id="slide01"]:checked
   ~ .slidewrap
   .slide-pagelist
@@ -205,7 +208,7 @@ a:hover {
   > li:nth-child(3)
   > label {
   background: #999;
-}
+} */
 
 .youtube-section {
   background-color: gray;
@@ -218,7 +221,7 @@ a:hover {
 
   height: 300px;
 
-  padding-left: 100px;
+  padding-left: 50px;
   padding-right: 50px;
   margin-left: 200px;
   margin-right: 20px;
@@ -306,4 +309,14 @@ a:hover {
   100% {
     left: 0%;
   }
+}
+
+.text-section {
+  background-color: black;
+  text-align: center;
+}
+
+.text-section img {
+  display: inline-block;
+  padding: 100px 100px 100px 100px;
 }
