@@ -68,6 +68,10 @@ function calculateSeq() {
   return TOTALDEFCOUNT;
 }
 
+router.get("/main", (req, res, next) => {
+  res.render("main");
+});
+
 router.get("/covidStatus", (req, res, next) => {
   handleUpdate();
   const seqNum = calculateSeq();
