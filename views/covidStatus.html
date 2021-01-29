@@ -11,16 +11,16 @@
   </head>
   <body>
     <% include ../views/header %> <% include ../views/navbar %>
-    <input type="hidden" value="<%= totalData %>" id="js-totalCovid" />
+    <input type="hidden" value="<%= dailyData %>" id="js-dailyCovid" />
     <input type="hidden" value="<%= cityCount %>" id="js-cityCovid" />
-    <div class="totalCovidStatus">
-      <canvas id="totalCovidChart"></canvas>
+    <div class="dailyCovidStatus">
+      <canvas id="dailyCovidChart"></canvas>
     </div>
     <div class="cityCovidStatus">
       <canvas id="cityCovidChart"></canvas>
     </div>
 
-    <script src="/javascripts/totalCovid.js"></script>
+    <script src="/javascripts/dailyCovid.js"></script>
     <script src="/javascripts/cityCovid.js"></script>
   </body>
 </html>

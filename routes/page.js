@@ -23,9 +23,9 @@ const handleUpdate = () => {
     fs.readFile(`./logs/update/${dayToUpdate}.log`, "utf8", (err, data) => {
       if (err) throw err;
       let updated = data.indexOf("Updating");
-      if (!updated && moment().hour() >= 10) {
+      if (updated == -1 && moment().hour() >= 10) {
         updateData();
-        logger.notice("Updating Data Complete");
+        logger.info("Updating Data Complete");
         console.log("Did update");
       } else {
         console.log("Cant update");
@@ -37,27 +37,27 @@ const handleUpdate = () => {
     }
   }
 };
-const resultConv = (result) => {
+
+const incDecConv = (result) => {
+  let resultList = [];
+  for (let i = 0; i < result.length; i++) {
+    resultList[i] = result[i].incDec;
+  }
+  return resultList;
+};
+const defCntConv = (result) => {
   let resultList = [];
   for (let i = 0; i < result.length; i++) {
     resultList[i] = result[i].defCnt;
   }
   return resultList;
 };
-
-const cityListConv = (result) => {
-  let cityList = [];
+const gubunConv = (result) => {
+  let resultList = [];
   for (let i = 0; i < result.length; i++) {
-    cityList[i] = result[i].gubun;
+    resultList[i] = result[i].gubun;
   }
-  return cityList;
-};
-const cityCountConv = (result) => {
-  let cityCount = [];
-  for (let i = 0; i < result.length; i++) {
-    cityCount[i] = result[i].defCnt;
-  }
-  return cityCount;
+  return resultList;
 };
 
 function calculateSeq() {
@@ -77,19 +77,19 @@ router.get("/main", (req, res, next) => {
 router.get("/covidStatus", (req, res, next) => {
   handleUpdate();
   const seqNum = calculateSeq();
-  const totalCovidSql = `SELECT defCnt FROM Covid202101 WHERE gubun='합계' and seq >='${seqNum}'`;
+  const dailyCovidSql = `SELECT incDec FROM Covid202101 WHERE gubun='합계' and seq >='${seqNum}'`;
   const cityCovidSql = `SELECT gubun,defCnt FROM Covid202101 WHERE seq >='${seqNum}' and gubun != '합계'`;
-  dbconn.query(totalCovidSql, (error, totalCovidResults, fields) => {
-    const totalCovidData = totalCovidResults;
+  dbconn.query(dailyCovidSql, (error, dailyCovidResults, fields) => {
+    const dailyCovidData = dailyCovidResults;
     if (error) throw error;
     dbconn.query(cityCovidSql, (error, cityCovidResults, fields) => {
       const cityCovidData = cityCovidResults;
       if (error) throw error;
       res.render("covidStatus.html", {
         title: "WIWY",
-        totalData: resultConv(totalCovidData),
-        cityList: cityListConv(cityCovidData),
-        cityCount: cityCountConv(cityCovidData),
+        dailyData: incDecConv(dailyCovidData),
+        cityList: gubunConv(cityCovidData),
+        cityCount: defCntConv(cityCovidData),
       });
     });
   });

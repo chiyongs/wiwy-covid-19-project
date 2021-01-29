@@ -1,6 +1,6 @@
-const inpTotal = document.getElementById("js-totalCovid");
+const inpTotal = document.getElementById("js-dailyCovid");
 const totalCovidCtx = document
-  .getElementById("totalCovidChart")
+  .getElementById("dailyCovidChart")
   .getContext("2d");
 const date = new Date();
 const firstMonth =

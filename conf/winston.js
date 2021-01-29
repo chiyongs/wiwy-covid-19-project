@@ -25,14 +25,6 @@ let logger = winston.createLogger({
     new winstonDaily({
       level: "info",
       datePattern: "YYYY-MM-DD",
-      dirname: logDir,
-      filename: `%DATE%.log`,
-      maxFiles: 30, // 30일치 로그 파일 저장
-      zippedArchive: true,
-    }),
-    new winstonDaily({
-      level: "notice",
-      datePattern: "YYYY-MM-DD",
       dirname: logDir + "/update",
       filename: `%DATE%.log`,
       maxFiles: 30, // 30일치 로그 파일 저장
