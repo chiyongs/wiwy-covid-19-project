@@ -25,5 +25,22 @@
         ><span>확진자 이동 경로</span></a
       >
     </li>
+
+    <li class="search">
+      <form id="searchForm1" action="/search/search.jsp" method="post">
+        <input
+          type="text"
+          id="searchform"
+          value
+          placeholder="검색어를 입력하세요"
+          height="50px"
+        />
+        <input
+          type="submit"
+          class="search_btn"
+          onclick="search('searchForm1');"
+        />
+      </form>
+    </li>
   </ul>
 </nav>
