@@ -8,9 +8,13 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/home.css" />
   </head>
   <body>
-    <% include ../views/header %> <% include ../views/navbar %>
+    <% include ../views/header %>
+    <div class="main-section" width="100%" height="300%">
+      <% include ../views/navbar %>
+    </div>
     <div class="section">
       <input type="radio" name="slide" id="slide01" checked />
       <input type="radio" name="slide" id="slide02" />
