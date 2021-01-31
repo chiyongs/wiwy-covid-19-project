@@ -1,4 +1,3 @@
-//
 const inpTotal = document.getElementById("js-dailyCovid");
 const totalCovidCtx = document
   .getElementById("dailyCovidChart")

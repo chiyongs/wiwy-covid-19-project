@@ -1,4 +1,3 @@
-//
 var request = require("request");
 
 var url = "http://apis.data.go.kr/1741000/DisasterMsg2/getDisasterMsgList";
