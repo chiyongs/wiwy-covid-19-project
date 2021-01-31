@@ -1,3 +1,4 @@
+//
 // page routing 할 곳
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var xhr = new XMLHttpRequest();

@@ -1,3 +1,4 @@
+//
 const inpTotal = document.getElementById("js-dailyCovid");
 const totalCovidCtx = document
   .getElementById("dailyCovidChart")
@@ -109,7 +110,8 @@ function renderChart() {
         yAxes: [
           {
             ticks: {
-              beginAtZero: false,
+              beginAtZero: true,
+              max: 2000,
             },
           },
         ],

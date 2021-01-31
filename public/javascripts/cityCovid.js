@@ -1,3 +1,4 @@
+//
 const cityCovidCtx = document.getElementById("cityCovidChart").getContext("2d");
 
 const inpCity = document.getElementById("js-cityCovid");
