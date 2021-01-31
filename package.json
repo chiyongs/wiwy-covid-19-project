@@ -1,4 +1,3 @@
-
 {
   "name": "wiwy-covid19-project",
   "version": "0.0.0",
@@ -9,6 +8,7 @@
   "dependencies": {
     "chart.js": "^2.9.4",
     "cheerio": "^1.0.0-rc.5",
+    "cheerio-httpcli": "^0.8.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
