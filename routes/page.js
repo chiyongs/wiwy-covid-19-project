@@ -14,29 +14,7 @@ const ONUL = "2021-01-27";
 const dbConObj = require("../conf/db_info");
 const dbconn = dbConObj.init();
 let TOTALDEFCOUNT = 7152;
-
-const handleUpdate = () => {
-  let dayToUpdate = moment().format("YYYY-MM-DD");
-  try {
-    fs.statSync(`./logs/update/${dayToUpdate}.log`);
-    console.log(`file or directory exists`);
-    fs.readFile(`./logs/update/${dayToUpdate}.log`, "utf8", (err, data) => {
-      if (err) throw err;
-      let updated = data.indexOf("Updating");
-      if (updated == -1 && moment().hour() >= 10) {
-        updateData();
-        logger.info("Updating Data Complete");
-        console.log("Did update");
-      } else {
-        console.log("Cant update");
-      }
-    });
-  } catch (err) {
-    if (err.code === "ENOENT") {
-      console.log(`file or directory does not exist`);
-    }
-  }
-};
+const checkUpdate = require("../conf/checkUpdLog");
 
 const incDecConv = (result) => {
   let resultList = [];
@@ -75,7 +53,7 @@ router.get("/main", (req, res, next) => {
 });
 
 router.get("/covidStatus", (req, res, next) => {
-  handleUpdate();
+  checkUpdate();
   const seqNum = calculateSeq();
   const dailyCovidSql = `SELECT incDec FROM Covid202101 WHERE gubun='합계' and seq >='${seqNum}'`;
   const cityCovidSql = `SELECT gubun,defCnt FROM Covid202101 WHERE seq >='${seqNum}' and gubun != '합계'`;
