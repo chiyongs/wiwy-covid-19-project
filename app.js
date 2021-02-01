@@ -20,8 +20,12 @@ app.engine("html", require("ejs").renderFile);
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
-      "default-src": ["'self'"],
-      "script-src": ["'self'", "https://cdnjs.cloudflare.com"],
+      "default-src": ["'self'", "https://unpkg.com"],
+      "script-src": [
+        "'self'",
+        "https://cdnjs.cloudflare.com",
+        "https://unpkg.com",
+      ],
       "object-src": ["'none'"],
       "frame-src": ["'self'", "https://www.youtube.com"],
     },
