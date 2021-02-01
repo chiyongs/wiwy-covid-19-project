@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"
+      integrity="sha512-hZf9Qhp3rlDJBvAKvmiG+goaaKRZA6LKUO35oK6EsM0/kjPK32Yw7URqrq3Q+Nvbbt8Usss+IekL7CRn83dYmw=="
+      crossorigin="anonymous"
+    ></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/home.css" />
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  </head>
+  <body>
+    <% include ../views/header %>
+    <div class="main-section">
+      <% include ../views/navbar %>
+      <div
+        class="main-text"
+        data-aos="fade-up"
+        data-aos-offset="250"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="top-center"
+      >
+        COVID-19 NEWS
+      </div>
+    </div>
+    <div class="youtube-section">
+      <iframe
+        class="youtube"
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/ZFUnG41xJOY?enablejsapi=1&origin=http://localhost:3000"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="news-section">hi</div>
+    <div class="text-section">
+      <img src="/images/text1.png" width="200px" height="300px" />
+      <img src="/images/text2.png" width="210px" height="300px" />
+      <img src="/images/text3.png" width="210px" height="300px" />
+    </div>
+    <img src="/images/chatbot.png" id="chatbotimg" width="20px" height="20px" />
+    <% include ../views/footer %>
+    <script src="/javascripts/aosinit.js"></script>
+  </body>
+</html>
