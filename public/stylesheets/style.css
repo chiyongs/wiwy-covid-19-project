@@ -1,85 +1,14 @@
+@import url("header.css");
+@import url("navbar.css");
+@import url("home.css");
+@import url("footer.css");
+
 body {
   margin: 0;
   padding: 0;
   display: block;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: white;
-}
-
-.navbar {
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 48px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.navbar .routesLists {
-  list-style: none;
-  margin-top: 10px;
-  height: 44px;
-}
-.routesLists .routesLink {
-  height: 44px;
-  margin-left: 50px;
-  margin-right: 50px;
-  display: inline;
-  font-size: 20px;
-}
-
-.navbar .routesLink-text span {
-  color: white;
-  padding-top: 0px;
-}
-
-.logotitle {
-  margin: 0px 0px 0px 0px;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding-bottom: 40px;
-}
-
-h1 {
-  margin: 0px 0px 0px 0px;
-  padding-bottom: 0px;
-  color: white;
-  /* font-weight: bold;
-  filter: drop-shadow(5px 5px 5px #100); */
-  font-size: 4rem;
-  font-weight: bold;
-  text-align: center;
-  letter-spacing: 3px;
-  font-family: "Anton", sans-serif;
-  background: url("../images/background.jpg");
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: animate 7s linear infinite;
-}
-@keyframes animate {
-  from {
-    background-position: 0% 50%;
-  }
-  to {
-    background-position: 100% 50% 0%;
-  }
-}
-
-.logotitle img {
-  position: relative;
-  left: 50px;
-  top: 75px;
-}
-a:link {
-  text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  cursor: pointer;
 }
 
 .text-section {
@@ -98,7 +27,4 @@ a:hover {
   right: 10px;
   width: 100px;
   height: 100px;
-}
-.search {
-  display: inline-block;
 }
