@@ -9,6 +9,12 @@ footer {
   background-color: rosybrown;
 }
 
+.ft1 img {
+  position: relative;
+  left: 100px;
+  top: 25px;
+}
+
 .ft2 {
   width: 40%;
   height: 250px;
