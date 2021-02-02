@@ -4,27 +4,48 @@ footer {
 
 .ft1 {
   width: 30%;
-  height: 250px;
+  height: 200px;
   float: left;
-  background-color: rosybrown;
+  background-color: rgb(0, 0, 0);
+  border-right: 1px solid white;
+  text-align: center;
 }
 
 .ft1 img {
   position: relative;
-  left: 100px;
-  top: 25px;
+  top: 50px;
 }
-
+.ft1 p {
+  color: white;
+  font-size: 15px;
+}
 .ft2 {
   width: 40%;
-  height: 250px;
+  height: 200px;
   float: left;
-  background-color: saddlebrown;
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.ft2 p {
+  color: white;
+  position: relative;
+  top: 30px;
+  font-size: 17px;
+  line-height: 5px;
+}
+
+#copyright {
+  color: white;
+  position: relative;
+  top: 70px;
+  font-size: 15px;
 }
 
 .ft3 {
-  width: 30%;
-  height: 250px;
+  width: 29%;
+  height: 200px;
   float: left;
-  background-color: slateblue;
+  background-color: rgb(0, 0, 0);
+  border-left: 1px solid white;
 }
