@@ -12,28 +12,7 @@ const dbConObj = require("../conf/db_info");
 const dbconn = dbConObj.init();
 let TOTALDEFCOUNT = 7152;
 const checkUpdate = require("../conf/checkUpdLog");
-
-const incDecConv = (result) => {
-  let resultList = [];
-  for (let i = 0; i < result.length; i++) {
-    resultList[i] = result[i].incDec;
-  }
-  return resultList;
-};
-const defCntConv = (result) => {
-  let resultList = [];
-  for (let i = 0; i < result.length; i++) {
-    resultList[i] = result[i].defCnt;
-  }
-  return resultList;
-};
-const gubunConv = (result) => {
-  let resultList = [];
-  for (let i = 0; i < result.length; i++) {
-    resultList[i] = result[i].gubun;
-  }
-  return resultList;
-};
+const funcConv = require("../conf/funcConv");
 
 function calculateSeq() {
   let count = moment().diff(moment(ONUL), "days") * 19;
@@ -48,6 +27,10 @@ router.get("/main", (req, res, next) => {
   res.render("main", {
     title: "WIWY",
   });
+});
+
+router.get("/api", (req, res, next) => {
+  res.json(covidData);
 });
 
 router.get("/covidStatus", (req, res, next) => {
@@ -73,9 +56,9 @@ router.get("/covidStatus", (req, res, next) => {
       if (error) throw error;
       res.render("covidStatus.html", {
         title: "WIWY",
-        dailyData: incDecConv(dailyCovidData),
-        cityList: gubunConv(cityCovidData),
-        cityCount: defCntConv(cityCovidData),
+        dailyData: funcConv.incDecConv(dailyCovidData),
+        cityList: funcConv.gubunConv(cityCovidData),
+        cityCount: funcConv.defCntConv(cityCovidData),
       });
     });
   });
