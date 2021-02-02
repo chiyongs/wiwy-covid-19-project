@@ -26,6 +26,7 @@ app.use(
         "'self'",
         "https://cdnjs.cloudflare.com",
         "https://unpkg.com",
+        "'unsafe-inline'",
       ],
       "object-src": ["'none'"],
       "frame-src": ["'self'", "https://www.youtube.com"],
