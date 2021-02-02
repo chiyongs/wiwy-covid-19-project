@@ -30,7 +30,11 @@ router.get("/main", (req, res, next) => {
 });
 
 router.get("/api", (req, res, next) => {
-  res.json(covidData);
+  const currentMon = moment().format("YYYYMM");
+  const selectAll = `SELECT * FROM covid${currentMon}`;
+  dbconn.query(selectAll, (error, covidData, fields) => {
+    res.json(covidData);
+  });
 });
 
 router.get("/covidStatus", (req, res, next) => {
