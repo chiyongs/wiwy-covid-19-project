@@ -1,28 +1,82 @@
-var request = require("request");
+const { RFC_2822 } = require("moment");
 
-var url = "http://apis.data.go.kr/1741000/DisasterMsg2/getDisasterMsgList";
-var queryParams =
-  "?" +
-  encodeURIComponent("ServiceKey") +
-  "=" +
-  "PPcz55RLIRHgBc%2B5Kzjvbqey%2BsWKrDNmUGNinjzzMcrOygzB%2FI8Tin7bENsGHgDV9puW%2BxpcymvgAU79Rl8S5Q%3D%3D"; /* Service Key*/
-queryParams +=
-  "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /* */
-queryParams +=
-  "&" + encodeURIComponent("numOfRows") + "=" + encodeURIComponent("10"); /* */
-queryParams +=
-  "&" + encodeURIComponent("type") + "=" + encodeURIComponent("json"); /* */
-queryParams +=
-  "&" + encodeURIComponent("flag") + "=" + encodeURIComponent("Y"); /* */
-
-request(
-  {
-    url: url + queryParams,
-    method: "GET",
+const sampleJSON = {
+  body: {
+    items: {
+      item: [
+        {
+          createDt: {
+            _text: "2021-02-0209: 35: 26.009",
+          },
+          deathCnt: {
+            _text: "3",
+          },
+          defCnt: {
+            _text: "2744",
+          },
+          gubun: {
+            _text: "검역",
+          },
+          gubunCn: {
+            _text: "隔離區",
+          },
+          gubunEn: {
+            _text: "Lazaretto",
+          },
+          incDec: {
+            _text: "12",
+          },
+          isolClearCnt: {
+            _text: "2221",
+          },
+          isolIngCnt: {
+            _text: "520",
+          },
+          localOccCnt: {
+            _text: "0",
+          },
+          overFlowCnt: {
+            _text: "12",
+          },
+          qurRate: {
+            _text: "-",
+          },
+          seq: {
+            _text: "7398",
+          },
+          stdDay: {
+            _text: "2021년02월02일00시",
+          },
+          updateDt: {
+            _text: "null",
+          },
+        },
+        {
+          hello: {
+            _text: "hi",
+          },
+        },
+        {
+          buddy: {
+            _text: "budy",
+          },
+          man: {
+            _text: "man",
+          },
+        },
+      ],
+    },
   },
-  function (error, response, body) {
-    console.log("Status", response.statusCode);
-    console.log("Headers", JSON.stringify(response.headers));
-    console.log("Reponse received", body);
-  }
-);
+};
+const asa = sampleJSON.body;
+for (let i = 0; i < 4; i++) {
+  // console.log(i);
+  // console.log(asa);
+  console.log(i);
+  console.log("sampleLength:", Object.keys(sampleJSON).length);
+  console.log("bodyLength", Object.keys(sampleJSON.body).length);
+  console.log("itemsLength", Object.keys(sampleJSON.body.items).length);
+  console.log("itemLength", Object.keys(sampleJSON.body.items.item).length);
+
+  // console.log("itemlenght:", sampleJSON.body.items.item[i].length);
+}

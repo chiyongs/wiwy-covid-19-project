@@ -1,7 +1,4 @@
 // page routing 할 곳
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-var xhr = new XMLHttpRequest();
-var convert = require("xml-js");
 const url =
   "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson"; /*URL*/
 const updateData = require("../conf/insertData");
@@ -43,6 +40,7 @@ function calculateSeq() {
   if (TOTALDEFCOUNT == 7152) {
     TOTALDEFCOUNT += count;
   }
+  console.log("count:", TOTALDEFCOUNT);
   return TOTALDEFCOUNT;
 }
 
@@ -53,10 +51,20 @@ router.get("/main", (req, res, next) => {
 });
 
 router.get("/covidStatus", (req, res, next) => {
-  checkUpdate();
+  let curMonth = moment().format("YYYYMM");
+  let checkDay = moment().format("DD");
+  let dailyCovidSql = "";
+  let cityCovidSql = "";
   const seqNum = calculateSeq();
-  const dailyCovidSql = `SELECT incDec FROM Covid202101 WHERE gubun='합계' and seq >='${seqNum}'`;
-  const cityCovidSql = `SELECT gubun,defCnt FROM Covid202101 WHERE seq >='${seqNum}' and gubun != '합계'`;
+  if (checkDay <= "06") {
+    let lastMonth = moment().subtract("1", "M").format("YYYYMM");
+    dailyCovidSql = `SELECT incDec FROM covid${lastMonth} WHERE gubun='합계' and seq >= '${seqNum}' UNION SELECT incDec FROM covid${curMonth} WHERE gubun='합계' and seq >= '${seqNum}'`;
+    cityCovidSql = `SELECT gubun,defCnt FROM covid${lastMonth} WHERE seq >='${seqNum}' and gubun != '합계' UNION SELECT gubun,defCnt FROM covid${curMonth} WHERE seq >='${seqNum}' and gubun != '합계'`;
+  } else {
+    dailyCovidSql = `SELECT incDec FROM covid${curMonth} WHERE gubun='합계' and seq >='${seqNum}'`;
+    cityCovidSql = `SELECT gubun,defCnt FROM covid${curMonth} WHERE seq >='${seqNum}' and gubun != '합계'`;
+  }
+  checkUpdate();
   dbconn.query(dailyCovidSql, (error, dailyCovidResults, fields) => {
     const dailyCovidData = dailyCovidResults;
     if (error) throw error;

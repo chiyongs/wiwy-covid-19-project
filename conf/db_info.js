@@ -6,7 +6,7 @@ const dbconnInfo = {
     host: "localhost",
     user: "root",
     password: PASSWORD,
-    database: "WiwyCovid",
+    database: "wiwycovid",
   },
 };
 
