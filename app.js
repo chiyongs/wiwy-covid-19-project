@@ -21,13 +21,14 @@ app.engine("html", require("ejs").renderFile);
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
-      "default-src": ["'self'", "https://unpkg.com"],
+      "default-src": ["'self'", "https://unpkg.com", "'unsafe-inline'"],
       "script-src": [
         "'self'",
         "https://cdnjs.cloudflare.com",
         "https://unpkg.com",
         "'unsafe-inline'",
       ],
+      "img-src": ["'self'", "data:"],
       "object-src": ["'none'"],
       "frame-src": ["'self'", "https://www.youtube.com"],
     },
