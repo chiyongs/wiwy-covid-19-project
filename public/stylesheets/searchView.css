@@ -1,0 +1,12 @@
+.searchResult-link {
+  color: black;
+}
+
+.searchResult-link :hover {
+  cursor: pointer;
+}
+
+.searchResult-link :visited,
+:link {
+  text-decoration: none;
+}

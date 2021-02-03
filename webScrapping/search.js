@@ -11,8 +11,10 @@ let printHttpResponse = () =>
       // console.log(body); -> 제대로 출력이 되는지 확인하기 위해서 작성
       //div yuRUbf의 클래스 안에있는 것들 서치
       let aList = $("div.yuRUbf").children("a");
+      let happy = aList.children("h3");
       for (let i = 0; i < aList.length; i++) {
-        console.log($(aList[i]).text()); //yuRUbf안에 있는 텍스트 출력
+        // console.log($(aList[i]).text()); //yuRUbf안에 있는 텍스트 출력
+        console.log($(happy[i]).text());
         console.log($(aList[i]).attr("href")); //링크 출력
       }
     }
