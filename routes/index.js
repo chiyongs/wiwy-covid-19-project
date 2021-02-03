@@ -3,24 +3,25 @@ const router = express.Router();
 const dbConObj = require("../conf/db_info");
 const dbconn = dbConObj.init();
 let moment = require("moment");
-const ONUL = "2021-01-27";
-let TOTALDEFCOUNT = 7152;
-
-function calculateSeq() {
-  let count = moment().diff(moment(ONUL), "days") * 19;
-  if (TOTALDEFCOUNT == 7152) {
-    TOTALDEFCOUNT += count;
-  }
-  console.log("count:", TOTALDEFCOUNT);
-  return TOTALDEFCOUNT;
-}
+const calculateSeq = require("../conf/calculateSeq");
+const funcConv = require("../conf/funcConv");
 
 /* GET home page. */
 router.get("/", (req, res, next) => {
   let today = moment().format("YYYYMM");
-  const todaySelect = `SELECT * FROM covid${today} WHERE gubun = '합계'`;
-  // dbconn.query();
-  res.render("index.html");
+  const seqNum = calculateSeq();
+  const todaySelect = `SELECT * FROM covid${today} WHERE gubun = '합계' and seq >= '${seqNum}'`;
+  dbconn.query(todaySelect, (error, results, fields) => {
+    res.render("index.html", {
+      defCnt: funcConv.defCntConv(results),
+      incDec: funcConv.incDecConv(results),
+      localOccCnt: funcConv.localOccCntConv(results),
+      overFlowCnt: funcConv.overFlowCntConv(results),
+      isolClearCnt: funcConv.isolClearCntConv(results),
+      isolIngCnt: funcConv.isolIngCntConv(results),
+      deathCnt: funcConv.deathCntConv(results),
+    });
+  });
 });
 
 module.exports = router;
