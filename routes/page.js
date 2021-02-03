@@ -1,27 +1,13 @@
 // page routing 할 곳
-const url =
-  "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson"; /*URL*/
-const updateData = require("../conf/insertData");
 const express = require("express");
 const router = express.Router();
-const fs = require("fs");
 let logger = require("../conf/winston");
 let moment = require("moment");
-const ONUL = "2021-01-27";
 const dbConObj = require("../conf/db_info");
 const dbconn = dbConObj.init();
-let TOTALDEFCOUNT = 7152;
 const checkUpdate = require("../conf/checkUpdLog");
 const funcConv = require("../conf/funcConv");
-
-function calculateSeq() {
-  let count = moment().diff(moment(ONUL), "days") * 19;
-  if (TOTALDEFCOUNT == 7152) {
-    TOTALDEFCOUNT += count;
-  }
-  console.log("count:", TOTALDEFCOUNT);
-  return TOTALDEFCOUNT;
-}
+const calculateSeq = require("../conf/calculateSeq");
 
 router.get("/main", (req, res, next) => {
   res.render("main", {
