@@ -7,9 +7,9 @@ const url =
 
 const dbConObj = require("./db_info");
 const dbconn = dbConObj.init();
-const dbMonth = moment().format("YYYYMM");
 
 function updateData(checkDate) {
+  const dbMonth = moment().format("YYYYMM");
   let xml = "";
   let queryParams =
     "?" +
@@ -26,12 +26,12 @@ function updateData(checkDate) {
     "&" +
     encodeURIComponent("startCreateDt") +
     "=" +
-    encodeURIComponent("20210201"); /* */
+    encodeURIComponent(checkDate); /* */
   queryParams +=
     "&" +
     encodeURIComponent("endCreateDt") +
     "=" +
-    encodeURIComponent("20210204"); /* */
+    encodeURIComponent(checkDate); /* */
 
   request(
     {
@@ -95,6 +95,6 @@ function updateData(checkDate) {
   );
 }
 
-updateData();
+// updateData();
 
-// module.exports = updateData;
+module.exports = updateData;
