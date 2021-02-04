@@ -64,13 +64,23 @@ footer {
   width: 50px;
   height: 50px;
   float: left;
-  margin-left: 37%;
+  margin-left: 30%;
   margin-top: 50px;
   border-radius: 15px;
 }
 
 .instagram {
   background-color: pink;
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-left: 20px;
+  margin-top: 50px;
+  border-radius: 15px;
+}
+
+.kakaotalk {
+  background-color: yellow;
   width: 50px;
   height: 50px;
   float: left;
