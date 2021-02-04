@@ -51,7 +51,7 @@ function updateData(checkDate) {
       );
       if (
         objResult.response.header.resultCode._text != "00" ||
-        objResult.response.body.totalCount == 0
+        objResult.response.body.totalCount.text == "0"
       ) {
         console.log("Did not updated the data : insertData.js");
       } else {
