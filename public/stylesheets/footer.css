@@ -13,11 +13,12 @@ footer {
 
 .ft1 img {
   position: relative;
-  top: 50px;
+  top: 10px;
 }
 .ft1 p {
   color: white;
   font-size: 15px;
+  padding-top: 20px;
 }
 .ft2 {
   width: 40%;
