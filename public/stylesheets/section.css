@@ -1,69 +1,74 @@
 .firstsection {
-    width: 100%;
-    margin-top:100px;
-    margin-bottom: 200px;
+  width: 100%;
+  margin-top: 100px;
+  margin-bottom: 200px;
 }
 
-table.style01 {
-    width: 80%;
-    /* border-collapse: collapse; */
-    text-align: center;
-    line-height: 1.5;
-    border-radius: 10px;
-    border-left: 1px solid #ccc;
-    border-top: 3px solid #ccc;
-    margin : auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    /* margin-bottom: 100px; */
-    box-shadow: 5px 5px 5px 5px gray;
-    font-family: Verdana, Geneva, Arial, sans-serif;
+table.coronaboard {
+  width: 80%;
+  /* border-collapse: collapse; */
+  text-align: center;
+  line-height: 1.5;
+  border-radius: 10px;
+  border-left: 1px solid #ccc;
+  border-top: 3px solid #ccc;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  /* margin-bottom: 100px; */
+  box-shadow: 5px 5px 5px 5px gray;
+  font-family: Verdana, Geneva, Arial, sans-serif;
 }
 
-table.style01 th {
-    width: 147px;
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: top;
-    /* color: #153d73; */
-    font-size:20px;
-    background-color: #F7C5A5;
-    color: #BA4C03;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    position: sticky;
-    top: 0px;
+table.coronaboard th {
+  width: 147px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  /* color: #153d73; */
+  font-size: 20px;
+  background-color: #f7c5a5;
+  color: #ba4c03;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  position: sticky;
+  top: 0px;
 }
 
-table.style01 td {
-    width: 349px;
-    padding: 10px;
-    vertical-align: top;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+table.coronaboard td {
+  width: 349px;
+
+  padding: 10px;
+  vertical-align: top;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
-h1{
-      text-align: center;
- }
+#three td {
+  padding: 50px;
+}
+
+h1 {
+  text-align: center;
+}
 
 div.left {
-    width: 50%;
-    float: left;
-    box-sizing: border-box;
-    background: #ff0;
+  width: 50%;
+  float: left;
+  box-sizing: border-box;
+  background: #ff0;
 }
 
 div.right {
-    width: 50%;
-    float: right;
-    box-sizing: border-box;   
-    background: #0ff;
+  width: 50%;
+  float: right;
+  box-sizing: border-box;
+  background: #0ff;
 }
 
-.sectionsection{
-    width: 100px;
-    box-sizing: border-box;
-    margin-top: 100px;
-    margin: 0 auto;
+.sectionsection {
+  width: 100px;
+  box-sizing: border-box;
+  margin-top: 100px;
+  margin: 0 auto;
 }
