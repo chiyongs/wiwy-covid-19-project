@@ -7,9 +7,9 @@ const url =
 
 const dbConObj = require("./db_info");
 const dbconn = dbConObj.init();
-const dbMonth = moment().format("YYYYMM");
 
 function updateData(checkDate) {
+  const dbMonth = moment().format("YYYYMM");
   let xml = "";
   let queryParams =
     "?" +
