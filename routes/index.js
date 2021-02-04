@@ -16,7 +16,7 @@ router.get("/", (req, res, next) => {
   const citySelect = `SELECT defCnt, incDec FROM covid${today} WHERE seq >= '${todaySeq}' and gubun != '합계'`;
   dbconn.query(todaySelect, (error, totalResults, fields) => {
     dbconn.query(citySelect, (error, cityResults, fields) => {
-      // console.log("total:", totalResults);
+      console.log("total:", totalResults);
       // console.log("city:", cityResults);
       res.render("index.html", {
         defCnt: funcConv.defCntConv(totalResults),

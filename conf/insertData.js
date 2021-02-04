@@ -10,7 +10,6 @@ const dbconn = dbConObj.init();
 
 function updateData(checkDate) {
   const dbMonth = moment().format("YYYYMM");
-  let xml = "";
   let queryParams =
     "?" +
     encodeURIComponent("ServiceKey") +
@@ -53,9 +52,9 @@ function updateData(checkDate) {
         objResult.response.header.resultCode._text != "00" ||
         objResult.response.body.totalCount.text == "0"
       ) {
-        console.log("Did not updated the data : insertData.js");
+        console.log("Did not updated the data <= insertData.js");
       } else {
-        console.log("Did update : insertData.js");
+        console.log("Did update <= insertData.js");
         for (
           let i = 0;
           i < Object.keys(objResult.response.body.items.item).length;

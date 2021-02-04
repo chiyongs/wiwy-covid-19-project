@@ -30,28 +30,28 @@ const funcConv = {
   overFlowCntConv: (result) => {
     let resultList = [];
     for (let i = 0; i < result.length; i++) {
-      resultList[i] = result[i].localOccCnt;
+      resultList[i] = result[i].overFlowCnt;
     }
     return resultList;
   },
   isolClearCntConv: (result) => {
     let resultList = [];
     for (let i = 0; i < result.length; i++) {
-      resultList[i] = result[i].localOccCnt;
+      resultList[i] = result[i].isolClearCnt;
     }
     return resultList;
   },
   isolIngCntConv: (result) => {
     let resultList = [];
     for (let i = 0; i < result.length; i++) {
-      resultList[i] = result[i].localOccCnt;
+      resultList[i] = result[i].isolIngCnt;
     }
     return resultList;
   },
   deathCntConv: (result) => {
     let resultList = [];
     for (let i = 0; i < result.length; i++) {
-      resultList[i] = result[i].localOccCnt;
+      resultList[i] = result[i].deathCnt;
     }
     return resultList;
   },
