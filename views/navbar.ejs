@@ -27,19 +27,15 @@
     </li>
 
     <li class="search">
-      <form id="searchForm1" action="/search/search.jsp" method="post">
+      <form id="searchForm1" action="/search/search_process" method="post">
         <input
           type="text"
           id="searchform"
-          value
+          name="searchTitle"
           placeholder="검색어를 입력하세요"
           height="50px"
         />
-        <input
-          type="submit"
-          class="search_btn"
-          onclick="search('searchForm1');"
-        />
+        <input type="submit" class="search_btn" />
       </form>
     </li>
   </ul>

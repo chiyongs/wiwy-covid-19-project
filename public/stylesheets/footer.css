@@ -13,11 +13,12 @@ footer {
 
 .ft1 img {
   position: relative;
-  top: 50px;
+  top: 10px;
 }
 .ft1 p {
   color: white;
   font-size: 15px;
+  padding-top: 20px;
 }
 .ft2 {
   width: 40%;
@@ -48,4 +49,47 @@ footer {
   float: left;
   background-color: rgb(0, 0, 0);
   border-left: 1px solid white;
+  text-align: center;
+}
+
+.ft3 p {
+  color: white;
+  position: relative;
+  top: 30px;
+  font-size: 17px;
+  line-height: 5px;
+}
+
+.copylink {
+  background-color: gray;
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-left: 30%;
+  margin-top: 50px;
+  border-radius: 15px;
+}
+
+.instagram {
+  background-color: pink;
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-left: 20px;
+  margin-top: 50px;
+  border-radius: 15px;
+}
+
+.kakaotalk {
+  background-color: yellow;
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-left: 20px;
+  margin-top: 50px;
+  border-radius: 15px;
+}
+
+.ft3 img {
+  padding-top: 5px;
 }

@@ -8,6 +8,7 @@ const logger = require("./conf/winston");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const pageRouter = require("./routes/page");
+const searchRouter = require("./routes/search");
 
 const app = express();
 
@@ -20,12 +21,14 @@ app.engine("html", require("ejs").renderFile);
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
-      "default-src": ["'self'", "https://unpkg.com"],
+      "default-src": ["'self'", "https://unpkg.com", "'unsafe-inline'"],
       "script-src": [
         "'self'",
         "https://cdnjs.cloudflare.com",
         "https://unpkg.com",
+        "'unsafe-inline'",
       ],
+      "img-src": ["'self'", "data:"],
       "object-src": ["'none'"],
       "frame-src": ["'self'", "https://www.youtube.com"],
     },
@@ -39,6 +42,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/page", pageRouter);
+app.use("/search", searchRouter);
 app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler

@@ -9,7 +9,7 @@ const dbConObj = require("./db_info");
 const dbconn = dbConObj.init();
 const dbMonth = moment().format("YYYYMM");
 
-function updateData() {
+function updateData(checkDate) {
   let xml = "";
   let queryParams =
     "?" +
@@ -26,12 +26,12 @@ function updateData() {
     "&" +
     encodeURIComponent("startCreateDt") +
     "=" +
-    encodeURIComponent("20210201"); /* */
+    encodeURIComponent("20210203"); /* */
   queryParams +=
     "&" +
     encodeURIComponent("endCreateDt") +
     "=" +
-    encodeURIComponent("20210201"); /* */
+    encodeURIComponent("20210203"); /* */
 
   request(
     {
@@ -40,22 +40,22 @@ function updateData() {
     },
     function (error, response, body) {
       if (error) throw error;
-      xml = body;
+      const stringResult = convert.xml2json(body, {
+        compact: true,
+        spaces: 2,
+      });
+      objResult = JSON.parse(stringResult);
+      console.log(
+        "response.resultCode :",
+        objResult.response.header.resultCode._text
+      );
       if (
-        xml ===
-          `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><response><header><resultCode>00</resultCode><resultMsg>NORMAL SERVICE.</resultMsg></header><body><items/><numOfRows>10</numOfRows><pageNo>1</pageNo><totalCount>0</totalCount></body></response>` ||
-        xml ===
-          `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><response><header><resultCode>99</resultCode><resultMsg>LIMITED NUMBER OF SERVICE REQUESTS EXCEEDS ERROR.</resultMsg></header></response>`
+        objResult.response.header.resultCode._text != "00" ||
+        objResult.response.body.totalCount == 0
       ) {
-        console.log("Did not updated :(");
+        console.log("Did not updated the data : insertData.js");
       } else {
-        console.log("Did update! :)");
-        const stringResult = convert.xml2json(xml, {
-          compact: true,
-          spaces: 2,
-        });
-        objResult = JSON.parse(stringResult);
-
+        console.log("Did update : insertData.js");
         for (
           let i = 0;
           i < Object.keys(objResult.response.body.items.item).length;
@@ -81,13 +81,14 @@ function updateData() {
           covidIsolClearCnt =
             objResult.response.body.items.item[i].isolClearCnt._text;
           // INSERT QUERY
-          // dbconn.query(
-          //   `INSERT INTO covid${dbMonth}(seq,gubun,defCnt,incDec,stdDay,gubunCn,gubunEn,qurRate,createDt,deathCnt,updateDt,isolIngCnt,localOccCnt,overFlowCnt,isolClearCnt) values ('${covidSeq}','${covidGubun}', '${covidDefCnt}','${covidIncDec}','${covidStdDay}','${covidGubunCn}','${covidGubunEn}','${covidQurRate}','${covidCreateDt}','${covidDeathCnt}','${covidUpdateDt}','${covidIsolIngCnt}','${covidLocalOccCnt}','${covidOverFlowCnt}','${covidIsolClearCnt}')`,
-          //   (error, rows, fields) => {
-          //     if (error) throw error;
-          //     // console.log("query did work");
-          //   }
-          // );
+          // console.log(objResult.response.body.items.item[i]);
+          dbconn.query(
+            `INSERT INTO covid${dbMonth}(seq,gubun,defCnt,incDec,stdDay,gubunCn,gubunEn,qurRate,createDt,deathCnt,updateDt,isolIngCnt,localOccCnt,overFlowCnt,isolClearCnt) values ('${covidSeq}','${covidGubun}', '${covidDefCnt}','${covidIncDec}','${covidStdDay}','${covidGubunCn}','${covidGubunEn}','${covidQurRate}','${covidCreateDt}','${covidDeathCnt}','${covidUpdateDt}','${covidIsolIngCnt}','${covidLocalOccCnt}','${covidOverFlowCnt}','${covidIsolClearCnt}')`,
+            (error, rows, fields) => {
+              if (error) throw error;
+              // console.log("query did work");
+            }
+          );
         } // for loop end
       }
     }
