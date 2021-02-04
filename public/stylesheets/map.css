@@ -1,0 +1,15 @@
+.mapdiv{
+    width: 30%;
+    margin: auto;
+}
+
+.mapdiv path {
+    fill:#81DAF5;
+    /* stroke: blue; 지도 라인 색깔
+    stroke-width: 3px; 지도 라인 굵기 */
+    transition: fill 0.3s; /*바뀌는 색상 및 초*/
+}
+
+.mapdiv :hover {
+    fill : blue;
+}
