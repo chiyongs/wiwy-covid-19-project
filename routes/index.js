@@ -6,14 +6,18 @@ let moment = require("moment");
 // const calculateSeq = require("../conf/calculateSeq");
 const calToday = require("../conf/calToday");
 const funcConv = require("../conf/funcConv");
+const checkUpdate = require("../conf/checkUpdLog");
 
 /* GET home page. */
 router.get("/", (req, res, next) => {
   let today = moment().format("YYYYMM");
+  let curMonth = moment().format("YYYYMM");
+  let checkDay = moment().format("DD");
   // const seqNum = calculateSeq();
   const todaySeq = calToday();
   const todaySelect = `SELECT * FROM covid${today} WHERE gubun = '합계' and seq >= '${todaySeq}'`;
   const citySelect = `SELECT defCnt, incDec FROM covid${today} WHERE seq >= '${todaySeq}' and gubun != '합계'`;
+  checkUpdate();
   dbconn.query(todaySelect, (error, totalResults, fields) => {
     dbconn.query(citySelect, (error, cityResults, fields) => {
       console.log("total:", totalResults);
