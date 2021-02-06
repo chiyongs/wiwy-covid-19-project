@@ -64,8 +64,7 @@ router.get("/searchAPI/:searchTitle", (req, res, next) => {
 });
 router.get("/:searchTitle", (req, res, next) => {
   const filteredTitle = path.parse(req.params.searchTitle).base;
-  console.log(filteredTitle);
-  // res.render(
+
   let searchResult = {
     lstOfText: [],
     lstOfLink: [],
@@ -87,7 +86,10 @@ router.get("/:searchTitle", (req, res, next) => {
       }
       //   return searchResult;
       //   res.send(searchResult);
-      res.render("searchView", { searchResult: searchResult });
+      res.render("searchView", {
+        searchResult: searchResult,
+        keyword: filteredTitle,
+      });
     }
   );
   //   console.log(result);
