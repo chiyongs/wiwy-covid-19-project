@@ -1,3 +1,8 @@
+.searchtext-section {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 4%;
+}
 .searchResult-link {
   color: black;
 }
@@ -9,4 +14,29 @@
 .searchResult-link :visited,
 :link {
   text-decoration: none;
+}
+
+.searchsection {
+  width: 100%;
+  height: 130px;
+  text-align: center;
+}
+.searchbox {
+  background-color: white;
+  border: 5px solid black;
+  border-radius: 20px;
+  width: 50%;
+  height: 8%;
+  position: absolute;
+  left: 50%;
+  top: 130px;
+  margin-left: -25%;
+}
+
+#seachimg {
+  float: right;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
 }

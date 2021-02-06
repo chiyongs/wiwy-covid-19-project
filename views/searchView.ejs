@@ -11,8 +11,12 @@
   </head>
   <body>
     <% include ../views/header %> <% include ../views/navbar %>
-
-    <div>
+    <div class="searchsection">
+      <div class="searchbox">
+        <img src="/images/seach.png" id="seachimg" width="6%" height="80%" />
+      </div>
+    </div>
+    <div class="searchtext-section">
       <% for (let i = 0 ; i < Object.keys(searchResult.lstOfText).length;i++){
       %>
       <div class="searchResult-link">
@@ -25,4 +29,5 @@
     <img src="/images/chatbot.png" id="chatbotimg" width="20px" height="20px" />
     <% include ../views/footer %>
   </body>
+  <script src="/javascripts/copylink.js"></script>
 </html>

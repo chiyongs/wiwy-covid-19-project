@@ -5,6 +5,7 @@
 @import url("section.css");
 @import url("table.css");
 @import url("map.css");
+@import url("searchView.css");
 
 body {
   margin: 0;
