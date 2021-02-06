@@ -33,10 +33,26 @@
   margin-left: -25%;
 }
 
-#seachimg {
+.keyword {
+  font-size: 20px;
+  float: left;
+}
+/* #seachimg {
   float: right;
   margin-top: 5px;
   margin-bottom: 5px;
   margin-right: 5px;
   margin-left: 5px;
+} */
+
+.searchResult-link {
+  font-size: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
 }

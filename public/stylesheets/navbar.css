@@ -35,10 +35,20 @@
 
 .search {
   float: right;
-  height: 44px;
+  height: 40px;
   margin-left: 50px;
   margin-right: 50px;
-  padding-bottom: 50px;
   display: inline;
-  font-size: 20px;
+]
+}
+#searchForm1{
+  background-color: white;
+  border: 5px solid black;
+}
+#searchForm{
+ height: 100%;
+}
+.search_btn {
+  background-color: white;
+  border: none;
 }
