@@ -16,7 +16,7 @@
   text-decoration: none;
 }
 
-.searchsection {
+/* .searchsection {
   width: 100%;
   height: 130px;
   text-align: center;
@@ -37,7 +37,7 @@
   font-size: 20px;
   float: left;
 }
-/* #seachimg {
+#seachimg {
   float: right;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -54,5 +54,6 @@
   margin-top: 20px;
   margin-bottom: 20px;
   border: 1px solid black;
+  background-color: rgb(240, 240, 240);
   border-radius: 5px;
 }
