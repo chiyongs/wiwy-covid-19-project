@@ -6,11 +6,11 @@ const url =
   "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson"; /*URL*/
 
 const dbConObj = require("./db_info");
+const logger = require("./winston");
 const dbconn = dbConObj.init();
 
 async function updateData(checkDate) {
   const dbMonth = moment().format("YYYYMM");
-  checkDate = "20210206";
   let task1 = await readyState(checkDate);
   let task2 = await reqToAPI(task1, checkDate);
 
@@ -57,17 +57,16 @@ async function updateData(checkDate) {
           objResult.response.header.resultCode._text,
           checkDate
         );
-        if (
-          objResult.response.header.resultCode._text != "00" ||
-          objResult.response.body.totalCount.text == "0"
-        ) {
-          console.log("Did not updated the data <= insertData.js");
+        if (objResult.response.header.resultCode._text != "00") {
+          console.log("Error updated the data <= insertData.js");
+          return 3;
+        } else if (objResult.response.body.totalCount._text == "0") {
+          console.log("Do not have recent data to update <= insertData.js");
+          logger.info("Night");
+          return 2;
         } else {
           console.log("Did update <= insertData.js");
-          console.log(
-            "objLength :",
-            Object.keys(objResult.response.body.items.item).length
-          );
+          logger.info("Updating Data Complete");
           for (
             let i = 0;
             i < Object.keys(objResult.response.body.items.item).length;
@@ -106,6 +105,7 @@ async function updateData(checkDate) {
               }
             );
           } // for loop end
+          return 1;
         }
       }
     );

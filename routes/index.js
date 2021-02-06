@@ -7,27 +7,31 @@ let moment = require("moment");
 const calToday = require("../conf/calToday");
 const funcConv = require("../conf/funcConv");
 const checkUpdate = require("../conf/checkUpdLog");
-
-function getUpdate(callback) {
-  return new Promise((resolve, reject) => {
-    checkUpdate();
-    resolve();
-  });
-}
+// const disMsg = require("../conf/disMsg");
 
 /* GET home page. */
 router.get("/", (req, res, next) => {
-  let today = moment().format("YYYYMM");
   let curMonth = moment().format("YYYYMM");
   let checkDay = moment().format("DD");
-  // const seqNum = calculateSeq();
+  // const msgObj = disMsg();
   const todaySeq = calToday();
-  const todaySelect = `SELECT * FROM covid${today} WHERE gubun = '합계' and seq >= '${todaySeq}'`;
-  const citySelect = `SELECT defCnt, incDec FROM covid${today} WHERE seq >= '${todaySeq}' and gubun != '합계'`;
-  getUpdate().then(() => {
+  let todaySelect = `SELECT * FROM covid${curMonth} WHERE gubun = '합계' and seq >= '${todaySeq}'`;
+  let citySelect = `SELECT defCnt, incDec FROM covid${curMonth} WHERE seq >= '${todaySeq}' and gubun != '합계'`;
+
+  checkUpdate(function (keyvalue) {
+    if (keyvalue == 1) {
+    } else if (keyvalue == 2) {
+      todaySelect = `SELECT * FROM covid${curMonth} WHERE gubun = '합계' and seq >= '${
+        todaySeq - 19
+      }' `;
+      citySelect = `SELECT defCnt, incDec FROM covid${curMonth} WHERE seq >= '${
+        todaySeq - 19
+      }' and gubun != '합계'`;
+    }
     dbconn.query(todaySelect, (error, totalResults, fields) => {
       dbconn.query(citySelect, (error, cityResults, fields) => {
         res.render("index.html", {
+          // disasterMsg: msgObj,
           defCnt: funcConv.defCntConv(totalResults),
           incDec: funcConv.incDecConv(totalResults),
           localOccCnt: funcConv.localOccCntConv(totalResults),
