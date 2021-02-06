@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "aos": "^3.0.0-beta.6",
+    "async": "^3.2.0",
     "chart.js": "^2.9.4",
     "cheerio": "^1.0.0-rc.5",
     "cheerio-httpcli": "^0.8.1",

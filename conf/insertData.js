@@ -1,5 +1,6 @@
 const fs = require("fs");
 const request = require("request");
+const async = require("async");
 let moment = require("moment");
 var convert = require("xml-js");
 const url =
@@ -31,7 +32,6 @@ function updateData(checkDate) {
     encodeURIComponent("endCreateDt") +
     "=" +
     encodeURIComponent(checkDate); /* */
-
   request(
     {
       url: url + queryParams,
