@@ -1,6 +1,5 @@
 const fs = require("fs");
 const request = require("request");
-const async = require("async");
 let moment = require("moment");
 var convert = require("xml-js");
 const url =
@@ -9,7 +8,7 @@ const url =
 const dbConObj = require("./db_info");
 const dbconn = dbConObj.init();
 
-function updateData(checkDate) {
+async function updateData(checkDate) {
   const dbMonth = moment().format("YYYYMM");
   let queryParams =
     "?" +
