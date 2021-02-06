@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/searchView.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/chart.css" />
   </head>
   <body>
+    <% include ../views/header %> <% include ../views/navbar %>
+
     <div>
       <% for (let i = 0 ; i < Object.keys(searchResult.lstOfText).length;i++){
       %>
@@ -18,5 +22,7 @@
       </div>
       <% } %>
     </div>
+    <img src="/images/chatbot.png" id="chatbotimg" width="20px" height="20px" />
+    <% include ../views/footer %>
   </body>
 </html>
