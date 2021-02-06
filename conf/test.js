@@ -83,19 +83,22 @@ const funcConv = require("./funcConv");
 //   // console.log("itemlenght:", sampleJSON.body.items.item[i].length);
 // }
 
-function abc() {
-  console.log("hello");
+async function tasks() {
+  let task1 = await hi1();
+  let task2 = await hi2(task1);
+  let task3 = await hi3(task2);
+
+  function hi1() {
+    console.log("hi1");
+    return "hi2";
+  }
+  function hi2(param) {
+    console.log(param);
+    return "hi3";
+  }
+  function hi3(param) {
+    console.log(param);
+  }
 }
 
-const promise = new Promise((resolve, reject) => {
-  console.log("hbye");
-});
-
-promise().then(
-  function () {
-    abc();
-  },
-  function (error) {
-    console.error(error);
-  }
-);
+tasks();
