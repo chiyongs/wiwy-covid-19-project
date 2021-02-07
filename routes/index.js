@@ -19,6 +19,7 @@ router.get("/", (req, res, next) => {
   let citySelect = `SELECT defCnt, incDec FROM covid${curMonth} WHERE seq >= '${todaySeq}' and gubun != '합계'`;
 
   checkUpdate(function (keyvalue) {
+    console.log(keyvalue);
     if (keyvalue == 1) {
     } else if (keyvalue == 2) {
       todaySelect = `SELECT * FROM covid${curMonth} WHERE gubun = '합계' and seq >= '${

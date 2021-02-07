@@ -9,12 +9,14 @@ const dbConObj = require("./db_info");
 const logger = require("./winston");
 const dbconn = dbConObj.init();
 
-async function updateData(checkDate) {
+function updateData(checkDate) {
   const dbMonth = moment().format("YYYYMM");
-  let task1 = await readyState(checkDate);
-  let task2 = await reqToAPI(task1, checkDate);
+  readyState(checkDate, function (queryParams) {
+    let key = reqToAPI(queryParams, checkDate);
+    return key;
+  });
 
-  function readyState(checkDate) {
+  function readyState(checkDate, callback) {
     let queryParams =
       "?" +
       encodeURIComponent("ServiceKey") +
@@ -36,7 +38,7 @@ async function updateData(checkDate) {
       encodeURIComponent("endCreateDt") +
       "=" +
       encodeURIComponent(checkDate); /* */
-    return queryParams;
+    callback(queryParams);
   }
   function reqToAPI(queryParams, checkDate) {
     request(

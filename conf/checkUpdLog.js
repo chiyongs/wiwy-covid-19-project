@@ -19,20 +19,31 @@ function checkUpdate(callback) {
           if (updKey == 1) {
             // update complete
             console.log("Did update");
-            callback(updKey);
+            if (i == 0) {
+              callback(updKey);
+            }
           } else if (updKey == 2) {
             // 밤 동안 최신 데이터가 없어서 업데이트 불가능
             console.log("No recent data <= checkUpdLog.js");
-            callback(updKey);
+            if (i == 0) {
+              callback(updKey);
+            }
           } else {
             // 그냥 업데이트 실패 데이터불러올때 에러코드
-            callback(updKey);
+            if (i == 0) {
+              callback(updKey);
+            }
           }
         } else if (nightExists != -1 && updatedAlready == -1) {
           console.log("It is night");
-          callback(2);
+          if (i == 0) {
+            callback(2);
+          }
         } else {
           console.log(`${checkDate} is already updated!`);
+          if (i == 0) {
+            callback(1);
+          }
         }
       });
     } else {
