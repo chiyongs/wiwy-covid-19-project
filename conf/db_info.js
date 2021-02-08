@@ -1,10 +1,10 @@
 const mysql = require("mysql");
-const PASSWORD = "root1234";
+const PASSWORD = "wiwy1234";
 
 const dbconnInfo = {
   chiyongs: {
-    host: "localhost",
-    user: "root",
+    host: "13.125.245.214",
+    user: "chiyongs",
     password: PASSWORD,
     database: "wiwycovid",
   },

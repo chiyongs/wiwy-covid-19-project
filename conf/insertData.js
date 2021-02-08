@@ -12,7 +12,7 @@ const dbconn = dbConObj.init();
 function updateData(checkDate) {
   const dbMonth = moment().format("YYYYMM");
   readyState(checkDate, function (queryParams) {
-    let key = reqToAPI(queryParams, checkDate);
+    let key = reqToAPI(queryParams);
     return key;
   });
 
@@ -40,7 +40,7 @@ function updateData(checkDate) {
       encodeURIComponent(checkDate); /* */
     callback(queryParams);
   }
-  function reqToAPI(queryParams, checkDate) {
+  function reqToAPI(queryParams) {
     request(
       {
         url: url + queryParams,
