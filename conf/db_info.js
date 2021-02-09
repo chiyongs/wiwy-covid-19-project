@@ -3,6 +3,12 @@ const PASSWORD = "wiwy1234";
 
 const dbconnInfo = {
   chiyongs: {
+    host: "localhost",
+    user: "root",
+    password: "root1234",
+    database: "wiwycovid",
+  },
+  wiwy: {
     host: "13.125.245.214",
     user: "chiyongs",
     password: PASSWORD,
