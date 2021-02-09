@@ -1,7 +1,12 @@
 .firstsection {
   width: 100%;
   margin-top: 100px;
-  margin-bottom: 200px;
+  /* margin-bottom: 200px; */
+}
+
+.mapsection {
+  width: 100%;
+  height: 1000px;
 }
 
 table.coronaboard {
@@ -14,7 +19,7 @@ table.coronaboard {
   border-top: 3px solid #ccc;
   margin: auto;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
   /* margin-bottom: 100px; */
   box-shadow: 5px 5px 5px 5px gray;
   font-family: Verdana, Geneva, Arial, sans-serif;
