@@ -53,7 +53,6 @@ function updateData(checkDate) {
           spaces: 2,
         });
         objResult = JSON.parse(stringResult);
-        console.log("body :", body);
         console.log(
           "response.resultCode :",
           objResult.response.header.resultCode._text,

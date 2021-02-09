@@ -55,6 +55,20 @@ const funcConv = {
     }
     return resultList;
   },
+  locationConv: (result) => {
+    let resultList = [];
+    for (let i = 0; i < result.length; i++) {
+      resultList[i] = result[i].location;
+    }
+    return resultList;
+  },
+  stepConv: (result) => {
+    let resultList = [];
+    for (let i = 0; i < result.length; i++) {
+      resultList[i] = result[i].step;
+    }
+    return resultList;
+  },
 };
 
 module.exports = funcConv;
