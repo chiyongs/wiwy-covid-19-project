@@ -5,6 +5,7 @@
       <th colspan="2">확진환자</th>
       <th>격리해제</th>
       <th>격리중</th>
+
       <th>사망</th>
     </tr>
     <tr id="two">
@@ -12,14 +13,16 @@
       <td>일별 확진자</td>
       <td>누적</td>
       <td>누적</td>
+
       <td>누적</td>
     </tr>
     <tr id="three">
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><%= defCnt %></td>
+      <td><%= incDec %></td>
+      <td><%= isolClearCnt %></td>
+      <td><%= isolIngCnt %></td>
+
+      <td><%= deathCnt %></td>
     </tr>
   </table>
 </div>
