@@ -34,8 +34,8 @@ router.get("/", (req, res, next) => {
     dbconn.query(citySelect, (error, cityResults, fields) => {
       dbconn.query(diststepSelect, (error, diststepResults, fields) => {
         res.render("index.html", {
-          seoultStep: funcConv.stepConv(diststepResults)[0],
-          daegutStep: funcConv.stepConv(diststepResults)[1],
+          seoulStep: funcConv.stepConv(diststepResults)[0],
+          daeguStep: funcConv.stepConv(diststepResults)[1],
           ulsanStep: funcConv.stepConv(diststepResults)[2],
           sejongtStep: funcConv.stepConv(diststepResults)[3],
           gyeonggiStep: funcConv.stepConv(diststepResults)[4],
