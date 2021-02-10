@@ -1,0 +1,49 @@
+<nav class="navbar">
+  <ul class="routesLists">
+    <li class="routesLink">
+      <a class="routesLink-text" href="/">
+        <span>HOME</span>
+      </a>
+    </li>
+    <li class="routesLink">
+      <a class="routesLink-text" href="/page/covidStatus">
+        <span>COVID-19 현황 그래프</span>
+      </a>
+    </li>
+    <li class="routesLink">
+      <a class="routesLink-text" href="/page/city"
+        ><span>시도별 발생동향</span></a
+      >
+    </li>
+    <li class="routesLink">
+      <a class="routesLink-text" href="/page/city"
+        ><span>확진자 이동 경로</span></a
+      >
+    </li>
+    <li class="routesLink">
+      <a class="routesLink-text" href="/page/confirmedMovement"
+        ><span>변이 바이러스</span></a
+      >
+    </li>
+
+    <li class="search">
+      <form id="searchForm1" action="/search/search_process" method="post">
+        <input
+          type="text"
+          id="searchform"
+          name="searchTitle"
+          value="<%= keyword %>"
+          placeholder="검색어를 입력하세요"
+        />
+        <button type="submit" class="search_btn">
+          <img
+            src="/images/seach.png"
+            id="seachimg"
+            width="20px"
+            height="20px"
+          />
+        </button>
+      </form>
+    </li>
+  </ul>
+</nav>

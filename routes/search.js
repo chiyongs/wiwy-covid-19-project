@@ -16,7 +16,6 @@ router.post("/search_process", (req, res, next) => {
 
 router.get("/:searchTitle", (req, res, next) => {
   const filteredTitle = path.parse(req.params.searchTitle).base;
-  console.log(filteredTitle);
   let searchResult = {
     lstOfText: [],
     lstOfLink: [],
