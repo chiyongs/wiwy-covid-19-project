@@ -19,6 +19,7 @@ router.get("/:searchTitle", (req, res, next) => {
   let searchResult = {
     lstOfText: [],
     lstOfLink: [],
+    lstOfSub: [],
   };
   client.fetch(
     "http://www.google.com/search",
@@ -28,12 +29,16 @@ router.get("/:searchTitle", (req, res, next) => {
       //div yuRUbf의 클래스 안에있는 것들 서치
       let aList = $("div.yuRUbf").children("a");
       let h3List = aList.children("h3");
+      let subList = $("div.IsZvec").children("div").children("span");
       for (let i = 0; i < aList.length; i++) {
         searchResult.lstOfText.push($(h3List[i]).text());
         searchResult.lstOfLink.push($(aList[i]).attr("href"));
         //   linkList[i] = $(aList[i]).attr("href");
         //   console.log($(aList[i]).text()); //yuRUbf안에 있는 텍스트 출력s
         //   console.log($(aList[i]).attr("href")); //링크 출력s\
+      }
+      for (let i = 0; i < subList.length; i++) {
+        searchResult.lstOfSub.push($(subList[i]).text());
       }
       //   return searchResult;
       //   res.send(searchResult);
