@@ -25,10 +25,10 @@ router.get("/api", (req, res, next) => {
 
 router.get("/covidStatus", (req, res, next) => {
   let curMonth = moment().format("YYYYMM");
-  let checkDay = moment().format("DD");
   let dailyCovidSql = "";
   let cityCovidSql = "";
   const seqNum = calculateSeq();
+  let checkDay = moment().format("DD");
   if (checkDay <= "06") {
     let lastMonth = moment().subtract("1", "M").format("YYYYMM");
     dailyCovidSql = `SELECT incDec FROM covid${lastMonth} WHERE gubun='합계' and seq >= '${seqNum}' UNION SELECT incDec FROM covid${curMonth} WHERE gubun='합계' and seq >= '${seqNum}'`;
@@ -37,7 +37,6 @@ router.get("/covidStatus", (req, res, next) => {
     dailyCovidSql = `SELECT incDec FROM covid${curMonth} WHERE gubun='합계' and seq >='${seqNum}'`;
     cityCovidSql = `SELECT gubun,defCnt FROM covid${curMonth} WHERE seq >='${seqNum}' and gubun != '합계'`;
   }
-  checkUpdate();
   dbconn.query(dailyCovidSql, (error, dailyCovidResults, fields) => {
     const dailyCovidData = dailyCovidResults;
     if (error) throw error;
