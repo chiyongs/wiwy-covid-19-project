@@ -18,7 +18,7 @@ const dbconnInfo = {
 
 const dbconnection = {
   init: function () {
-    return mysql.createConnection(dbconnInfo.chiyongs);
+    return mysql.createConnection(dbconnInfo.wiwy);
   },
 
   dbopen: function (con) {

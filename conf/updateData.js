@@ -9,18 +9,18 @@ const dbConObj = require("./db_info");
 const logger = require("./winston");
 const dbconn = dbConObj.init();
 
-function updateData(checkDate) {
+function updateData(checkDate, callback) {
   const dbMonth = moment().format("YYYYMM");
   readyState(checkDate, function (queryParams) {
     let key = reqToAPI(queryParams);
-    return key;
+    callback(key);
   });
 
   function readyState(checkDate, callback) {
     let queryParams =
       "?" +
       encodeURIComponent("ServiceKey") +
-      "=PPcz55RLIRHgBc%2B5Kzjvbqey%2BsWKrDNmUGNinjzzMcrOygzB%2FI8Tin7bENsGHgDV9puW%2BxpcymvgAU79Rl8S5Q%3D%3D"; /* Service Key*/
+      "=PgdnR4cgw6WwmfyR7rqzzBcJPu3rx3LPtinOu4hHP5B9o2oiJ6alrNDnOvcqdBmUQKgQxFW1WGDnEMPFh%2B87Zw%3D%3D"; /* Service Key*/
     queryParams +=
       "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /* */
     queryParams +=

@@ -1,6 +1,6 @@
 const fs = require("fs");
 let moment = require("moment");
-const updateData = require("./insertData");
+const updateData = require("./updateData");
 let logger = require("./winston");
 
 function checkUpdate(callback) {

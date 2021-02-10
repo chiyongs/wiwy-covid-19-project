@@ -8,9 +8,9 @@ let getDistStep = (callback) =>
     for (let i = 0; i < 34; i += 2) {
       let loc_name = $(aList[i]).text();
       let loc_step = $(aList[i + 1]).text();
-      //   `INSERT INTO diststep(loc_pk,location,step) values ('${i}','${loc_name}','${loc_step}')`
       dbconn.query(
-        `UPDATE diststep SET step = '${loc_step}' WHERE loc_pk = '${i}'`,
+        `INSERT INTO diststep(loc_pk,location,step) values ('${i}','${loc_name}','${loc_step}')`,
+        // `UPDATE diststep SET step = '${loc_step}' WHERE loc_pk = '${i}'`,
         (error, results, fields) => {
           if (error) throw error;
         }
