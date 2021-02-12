@@ -1,5 +1,5 @@
 <h1 align="center">
-![alt text](https://github.com/chiyongs/wiwy-covid19-project/blob/master/public/images/logo.jpg?raw=true)
+<img src="https://github.com/chiyongs/wiwy-covid19-project/blob/master/public/images/logo.jpg?raw=true" alt="WIWY">
 <br>
 WIWY
 </h1>
