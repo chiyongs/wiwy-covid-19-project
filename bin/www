@@ -36,7 +36,7 @@ server.on("listening", onListening);
 
 const fetchData = schedule.scheduleJob("0 0 */1 * * *", () => {
   if (update_info.isUpdate) {
-    updateData(curData, function (key) {});
+    updateData(curData);
     logger.info("Updating complete");
   } else {
     logger.info("Did already");

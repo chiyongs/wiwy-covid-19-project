@@ -9,11 +9,11 @@ const dbConObj = require("./db_info");
 const logger = require("./winston");
 const dbconn = dbConObj.init();
 
-function updateData(checkDate, callback) {
+function updateData(checkDate) {
   const dbMonth = moment().format("YYYYMM");
   readyState(checkDate, function (queryParams) {
     let key = reqToAPI(queryParams);
-    callback(key);
+    return key;
   });
 
   function readyState(checkDate, callback) {
@@ -113,6 +113,6 @@ function updateData(checkDate, callback) {
   }
 }
 
-// updateData();
+updateData();
 
-module.exports = updateData;
+// module.exports = updateData;
