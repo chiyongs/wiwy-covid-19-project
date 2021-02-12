@@ -39,6 +39,7 @@ const fetchData = schedule.scheduleJob("0 0 */1 * * *", () => {
   if (!update_info.isUpdate) {
     updateData(curDate);
     update_info.didUpdate();
+    console.log(update_info.isUpdate);
     logger.info("Updating complete");
   } else {
     update_info.didUpdate();
