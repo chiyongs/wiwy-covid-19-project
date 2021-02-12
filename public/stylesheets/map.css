@@ -5,13 +5,19 @@
 }
 
 .cityname {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
 }
 
 .citycontent {
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 700;
+}
+
+.cityint{
+  font-size: 11px;
+  font-weight: 500;
+  color: red;
 }
 
 #South_Korea {
