@@ -2,6 +2,7 @@ const fs = require("fs");
 const request = require("request");
 let moment = require("moment");
 var convert = require("xml-js");
+var update_info = require("./update_info");
 const url =
   "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson"; /*URL*/
 
@@ -86,18 +87,20 @@ function updateData(checkDate, callback) {
             objResult.response.body.items.item[i].isolClearCnt._text;
           // INSERT QUERY
           // console.log(objResult.response.body.items.item[i]);
-
-          dbconn.query(
-            `INSERT INTO covid${dbMonth}(seq,gubun,defCnt,incDec,stdDay,gubunCn,gubunEn,qurRate,createDt,deathCnt,updateDt,isolIngCnt,localOccCnt,overFlowCnt,isolClearCnt) values ('${covidSeq}','${covidGubun}', '${covidDefCnt}','${covidIncDec}','${covidStdDay}','${covidGubunCn}','${covidGubunEn}','${covidQurRate}','${covidCreateDt}','${covidDeathCnt}','${covidUpdateDt}','${covidIsolIngCnt}','${covidLocalOccCnt}','${covidOverFlowCnt}','${covidIsolClearCnt}')`,
-            (error, rows, fields) => {
-              if (error) {
-                callback(4);
+          if (!update_info.isUpdate) {
+            dbconn.query(
+              `INSERT INTO covid${dbMonth}(seq,gubun,defCnt,incDec,stdDay,gubunCn,gubunEn,qurRate,createDt,deathCnt,updateDt,isolIngCnt,localOccCnt,overFlowCnt,isolClearCnt) values ('${covidSeq}','${covidGubun}', '${covidDefCnt}','${covidIncDec}','${covidStdDay}','${covidGubunCn}','${covidGubunEn}','${covidQurRate}','${covidCreateDt}','${covidDeathCnt}','${covidUpdateDt}','${covidIsolIngCnt}','${covidLocalOccCnt}','${covidOverFlowCnt}','${covidIsolClearCnt}')`,
+              (error, rows, fields) => {
+                if (error) throw error;
+                // console.log("query did work");
               }
-              // console.log("query did work");
-            }
-          );
+            );
+            callback(1);
+          } else {
+            logger.info("Did already <= updateData.js");
+            callback(4);
+          }
         } // for loop end
-        callback(1);
       }
     }
   );
