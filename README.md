@@ -1,30 +1,24 @@
+![alt text](https://github.com/chiyongs/wiwy-covid19-project/blob/master/public/images/logo.jpg?raw=true)
+
 # wiwy-covid19-project
 
-# How to start
+---
 
-package manager를 가지고 있어야 함(npm or yarn)
+A Single Page Web providing the Covid19 information of South Korea
 
-- express module 다운로드
-  yarn add express
+---
 
-# public
+# Major Features
 
-정적인 파일들을 모아놓는 곳
-ex) images, javascripts, stylesheets (html의 애니메이션과 스타일에 관련)
+- Corona map of South Korea
+- Graph of Daily confirmed figures
+- Chart of Confirmed figures per City
+- Can find any information with search provided by Google!
 
-# routes
+---
 
-라우팅
+# Framework used
 
-# view
+Built with
 
-보여지는 부분
-ex) html, ejs
-
-# webScrapping
-
-웹 상에 존재하는 데이터를 DB에 저장하는 코드
-
-app => chiyongs
-view => spy03128
-webScrapping => wnsduq6229
+- Expressjs
