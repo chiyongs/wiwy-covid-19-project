@@ -5,7 +5,6 @@ function calculateSeq() {
     "2021-01-27"; /* 2021-01-27로 하면 오늘자 데이터만 구할수 있음 */
   const ONUL = moment().format("YYYY-MM-DD");
   let count = moment(ONUL).diff(moment(GIJOON), "days") * 19;
-  console.log(count);
   if (TOTALDEFCOUNT == 7152) {
     TOTALDEFCOUNT += count;
   }

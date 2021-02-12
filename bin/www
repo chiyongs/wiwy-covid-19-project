@@ -33,12 +33,15 @@ var server = http.createServer(app);
 server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
+console.log(update_info.isUpdate);
 
 const fetchData = schedule.scheduleJob("0 0 */1 * * *", () => {
-  if (update_info.isUpdate) {
-    updateData(curData);
+  if (!update_info.isUpdate) {
+    updateData(curDate);
+    update_info.didUpdate();
     logger.info("Updating complete");
   } else {
+    update_info.didUpdate();
     logger.info("Did already");
   }
 });

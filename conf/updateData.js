@@ -113,6 +113,6 @@ function updateData(checkDate) {
   }
 }
 
-updateData();
+// updateData();
 
-// module.exports = updateData;
+module.exports = updateData;
