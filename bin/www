@@ -37,17 +37,22 @@ console.log(update_info.isUpdate);
 
 const fetchData = schedule.scheduleJob("0 0 */1 * * *", () => {
   if (!update_info.isUpdate) {
-    updateData(curDate);
-    update_info.didUpdate();
+    updateData(curDate, (key) => {
+      if (key == 1) {
+        update_info.didUpdate();
+        logger.info("Updating complete");
+      } else {
+        update_info.clrUpdate();
+      }
+    });
     console.log(update_info.isUpdate);
-    logger.info("Updating complete");
   } else {
     update_info.didUpdate();
     logger.info("Did already");
   }
 });
 
-const refreshUpdate = schedule.scheduleJob("0 0 0 * * *", () => {
+const refreshUpdate = schedule.scheduleJob("0 5 0 * * *", () => {
   update_info.clrUpdate();
 });
 /**
