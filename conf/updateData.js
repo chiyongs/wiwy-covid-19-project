@@ -95,12 +95,12 @@ function updateData(checkDate, callback) {
                 // console.log("query did work");
               }
             );
-            callback(1);
           } else {
             logger.info("Did already <= updateData.js");
             callback(4);
           }
         } // for loop end
+        callback(1);
       }
     }
   );
