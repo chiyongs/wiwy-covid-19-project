@@ -1,8 +1,10 @@
+<h1 align="center">
 ![alt text](https://github.com/chiyongs/wiwy-covid19-project/blob/master/public/images/logo.jpg?raw=true)
+<br>
+WIWY
+</h1>
 
 # wiwy-covid19-project
-
----
 
 A Single Page Web providing the Covid19 information of South Korea
 
