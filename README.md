@@ -1,7 +1,5 @@
 <h1 align="center">
 <img src="https://github.com/chiyongs/wiwy-covid19-project/blob/master/public/images/logo.jpg?raw=true" alt="WIWY">
-<br>
-WIWY
 </h1>
 
 # wiwy-covid19-project
@@ -24,3 +22,5 @@ A Single Page Web providing the Covid19 information of South Korea
 Built with
 
 - Expressjs
+
+---
