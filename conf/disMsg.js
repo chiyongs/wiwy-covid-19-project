@@ -1,6 +1,6 @@
 var request = require("request");
 
-function disMsg() {
+function getDisMsg(getCreateDate, getLoc_name, getContent) {
   var url = "http://apis.data.go.kr/1741000/DisasterMsg2/getDisasterMsgList";
   var queryParams =
     "?" +
@@ -31,12 +31,10 @@ function disMsg() {
       let msg = JSON.parse(body);
       if (msg.DisasterMsg[0].head[2].RESULT.resultCode == "INFO-0") {
         console.log("Load disMsg complete <= disMsg.js");
-        let disMsgObj = {
-          create_date: msg.DisasterMsg[1].row[0].create_date,
-          location_name: msg.DisasterMsg[1].row[0].location_name,
-          content: msg.DisasterMsg[1].row[0].msg,
-        };
-        return disMsgObj;
+        console.log("totalCount", msg.DisasterMsg[0].head[0].totalCount);
+        getCreateDate(msg.DisasterMsg[1].row[0].create_date);
+        getLoc_name(msg.DisasterMsg[1].row[0].location_name);
+        getContent(msg.DisasterMsg[1].row[0].msg);
       } else {
         console.log("Can not load msg");
         return;
@@ -44,4 +42,5 @@ function disMsg() {
     }
   );
 }
-module.exports = disMsg;
+
+module.exports = getDisMsg;

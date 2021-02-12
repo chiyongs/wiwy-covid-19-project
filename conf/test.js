@@ -1,8 +1,13 @@
-const update_info = require("./update_info");
+const getDisMsg = require("./disMsg");
 
-let a = 1;
-console.log(a);
-if (a == 1) {
-  // update_info.didUpdate();
-}
-console.log(update_info.isUpdate);
+getDisMsg(
+  function (date) {
+    console.log(date);
+  },
+  function (loc) {
+    console.log(loc);
+  },
+  function (con) {
+    console.log(con);
+  }
+);

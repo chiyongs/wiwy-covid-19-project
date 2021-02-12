@@ -11,6 +11,7 @@ var http = require("http");
 const updateData = require("../conf/updateData");
 let moment = require("moment");
 let curDate = moment().format("YYYYMMDD");
+let logger = require("../conf/winston");
 
 /**
  * Get port from environment and store in Express.
@@ -33,64 +34,15 @@ server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
 
-const loadData10 = schedule.scheduleJob("0 0 10 * * *", () => {
-  updateData(curDate, function (key) {
-    if (key != 1) {
-      const loadData11 = schedule.scheduleJob("0 0 11 * * *", () => {
-        updateData(curDate, function (key) {
-          if (key != 1) {
-            const loadData12 = schedule.scheduleJob("0 0 12 * * *", () => {
-              updateData(curDate, function (key) {
-                if (key != 1) {
-                  const loadData13 = schedule.scheduleJob(
-                    "0 0 13 * * *",
-                    () => {
-                      updateData(curDate, function (key) {
-                        if (key != 1) {
-                          const loadData14 = schedule.scheduleJob(
-                            "0 0 14 * * *",
-                            () => {
-                              updateData(curDate, function (key) {
-                                if (key != 1) {
-                                  const loadData15 = schedule.scheduleJob(
-                                    "0 0 15 * * *",
-                                    () => {
-                                      updateData(curDate, function (key) {});
-                                      update_info.didUpdate();
-                                      loadData15.cancel();
-                                    }
-                                  );
-                                } else {
-                                  update_info.didUpdate();
-                                  loadData14.cancel();
-                                }
-                              });
-                            }
-                          );
-                        } else {
-                          update_info.didUpdate();
-                          loadData13.cancel();
-                        }
-                      });
-                    }
-                  );
-                } else {
-                  update_info.didUpdate();
-                  loadData12.cancel();
-                }
-              });
-            });
-          } else {
-            update_info.didUpdate();
-            loadData11.cancel();
-          }
-        });
-      });
-    } else {
-      update_info.didUpdate();
-    }
-  });
+const fetchData = schedule.scheduleJob("0 0 */1 * * *", () => {
+  if (update_info.isUpdate) {
+    updateData(curData, function (key) {});
+    logger.info("Updating complete");
+  } else {
+    logger.info("Did already");
+  }
 });
+
 const refreshUpdate = schedule.scheduleJob("0 0 0 * * *", () => {
   update_info.clrUpdate();
 });
