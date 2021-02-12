@@ -90,7 +90,9 @@ function updateData(checkDate, callback) {
           dbconn.query(
             `INSERT INTO covid${dbMonth}(seq,gubun,defCnt,incDec,stdDay,gubunCn,gubunEn,qurRate,createDt,deathCnt,updateDt,isolIngCnt,localOccCnt,overFlowCnt,isolClearCnt) values ('${covidSeq}','${covidGubun}', '${covidDefCnt}','${covidIncDec}','${covidStdDay}','${covidGubunCn}','${covidGubunEn}','${covidQurRate}','${covidCreateDt}','${covidDeathCnt}','${covidUpdateDt}','${covidIsolIngCnt}','${covidLocalOccCnt}','${covidOverFlowCnt}','${covidIsolClearCnt}')`,
             (error, rows, fields) => {
-              if (error) throw error;
+              if (error) {
+                callback(4);
+              }
               // console.log("query did work");
             }
           );
