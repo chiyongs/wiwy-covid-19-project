@@ -1,8 +1,18 @@
-const update_info = require("./update_info");
+const getDisMsg = require("./disMsg");
+const updateData = require("./updateData");
 
-let a = 1;
-console.log(a);
-if (a == 1) {
-  // update_info.didUpdate();
-}
-console.log(update_info.isUpdate);
+let key = updateData("20210212", (key) => {
+  console.log(key);
+});
+
+// getDisMsg(
+//   function (date) {
+//     console.log(date);
+//   },
+//   function (loc) {
+//     console.log(loc);
+//   },
+//   function (con) {
+//     console.log(con);
+//   }
+// );
