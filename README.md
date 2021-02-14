@@ -4,7 +4,7 @@
 
 # wiwy-covid19-project
 
-A Single Page Web providing the Covid19 information of South Korea
+A Single Page Web providing the Covid19 information of South Korea!
 
 ---
 
