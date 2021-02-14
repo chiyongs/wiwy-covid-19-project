@@ -8,8 +8,6 @@ const logger = require("./conf/winston");
 const update_info = require("./conf/update_info");
 
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
-const pageRouter = require("./routes/page");
 const searchRouter = require("./routes/search");
 
 const app = express();
@@ -43,9 +41,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/page", pageRouter);
 app.use("/search", searchRouter);
-app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
