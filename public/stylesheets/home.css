@@ -2,6 +2,7 @@
   background: url("../images/backgroundimg.jpg") center center / 100% no-repeat;
   width: 100%;
   height: 400px;
+  background-attachment: scroll;
 }
 
 .main-text {
