@@ -35,12 +35,16 @@ server.on("error", onError);
 server.on("listening", onListening);
 console.log(update_info.isUpdate);
 
-const fetchData = schedule.scheduleJob("0 0 */1 * * *", () => {
+const hello = schedule.scheduleJob("6 0 23 * * *", "Asia/Seoul", () => {
+  logger.info("hello");
+});
+
+const fetchData = schedule.scheduleJob("0 0 */1 * * *", "Asia/Seoul", () => {
   if (!update_info.isUpdate) {
     updateData(curDate, (key) => {
       if (key == 1) {
         update_info.didUpdate();
-        logger.info("Updating complete");
+        logger.info("update_info:", update_info, "Updating complete");
       } else {
         update_info.clrUpdate();
       }
