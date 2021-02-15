@@ -1,5 +1,5 @@
 table.style01 {
-    width: 50%;
+    width: 80%;
     /* border-collapse: collapse; */
     text-align: center;
     line-height: 1.5;
@@ -32,10 +32,11 @@ table.style01 th {
 table.style01 td {
     width: 349px;
     padding: 10px;
-    vertical-align: top;
+    vertical-align: middle;
     border-right: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     background-color: white;
+    font-size: 12px;
 }
 
 table.style02 {
