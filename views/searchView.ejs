@@ -18,33 +18,47 @@
       </div>
     </div> -->
     <div class="searchtext-section">
-      <table class="searchContent">
-        <thead>
-          <tr>
-            <th colspan="2">검색 내역</th>
-          </tr>
-        </thead>
-        <tbody>
+          <h2 class="searchhead-section">검색 결과</h3>
           <% for (let i = 0 ; i < Object.keys(searchResult.lstOfText).length;i++){
           %>
-          <!-- <div class="searchResult-link"> -->
-            <tr>
-            <td>
+            <div class="searchResult-link">
               <a href="<%= searchResult.lstOfLink[i] %>">
                 <span><%= searchResult.lstOfText[i] %></span>
-                <!-- <br /> -->
               </a>
-            </td>
-            <td>
-              <span>- <%= searchResult.lstOfSub[i] %></span>
-              <br>&nbsp;
-            </td>
-            </tr>
-          <!-- </div> -->
+              <br>
+              <span class="searchCont">- <%= searchResult.lstOfSub[i] %></span>
+              <br>
+            </div>
+              
+
           <% } %>
-      </tbody>
-      </table>
+    <!-- <script type="text/javascript">
+      // for (let i = 0 ; i < Object.keys(searchResult.lstOfText).length;i++){
+        $.post('https://graph.facebook.com/v9.0/?scrape=true&id=http%3A%2F%2Fyahoo.com&access_token=EAAL4gmeOttwBAG4iZAFIBp0s44wKJLLiz6PtyTsoIzI68dWhUWeXzRwFhVQLZCGUhZB7Ajdrnvp64SHIfdywZBOBsMwGhsfRM9eRcXt028zonWSOT7QtZC5tlAi1FN8WShZBoFYZCOWEUVaE1NZBzi3IG1g2oZAs3cnrlY3lZBdepPZC5jmPcGFE2FJwUnvWd5nnDLTz2JyNOoj9lsmtXhC5c4ZB4YyYguKBmOlA1acPcZBbtyQZDZD', function(data){
+          var img = "";
+          $('.title').html(`
+            <h1>`+data.title+`</h1>
+            <p>`+data.description+`</p>
+          `);
+
+          $.each(data.image, function(k, v){
+            img += '<img style="width:50%" src="'+v.url+'">';
+          });
+
+          $('.images').html(img);
+        })
+      // }
+    </script> -->
     </div>
+    <div class="searchtextsub-section">
+      <p style="text-align: center; font-size: 18px; font-weight: 600;">연관 검색어</p>
+      <p class="keyword-section"><img src="/images/seach.png" id="seachimg" width="15px" height="14px"/>  이건 어떤가요??</p>
+      <p class="keyword-section"><img src="/images/seach.png" id="seachimg" width="15px" height="14px"/>  이건 어떤가요??</p>
+      <p class="keyword-section"><img src="/images/seach.png" id="seachimg" width="15px" height="14px"/>  이건 어떤가요??</p>
+      <p class="keyword-section"><img src="/images/seach.png" id="seachimg" width="15px" height="14px"/>  이건 어떤가요??</p>
+      <p class="keyword-section"><img src="/images/seach.png" id="seachimg" width="15px" height="14px"/>  이건 어떤가요??</p>
+      <p class="keyword-section"><img src="/images/seach.png" id="seachimg" width="15px" height="14px"/>  이건 어떤가요??</p>
+      </div>
     <img src="/images/chatbot.png" id="chatbotimg" width="20px" height="20px" />
     <% include ../views/footer %>
   </body>

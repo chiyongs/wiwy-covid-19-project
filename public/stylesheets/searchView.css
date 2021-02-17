@@ -1,8 +1,38 @@
 .searchtext-section {
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-top: 3%;
+  margin-left: 3%;
+  margin-right: 10%;
   margin-bottom: 4%;
+  width: 60%;
+  float: left;
 }
+.searchhead-section{
+  text-align: center;
+  font-size:22px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left:26px;
+  background-color: #fff;
+  border: 1px solid #e8e8ee;
+}
+.searchtextsub-section{
+  margin-left: 10%;
+  margin-top: 100px;
+  padding: 10px 25px 10px 25px;
+  border: 1px solid #e8ebee;
+  border-radius: 6px;
+  width: auto;
+  float: left;  
+  background-color: #fff;
+}
+
+.keyword-section{
+  /* border: 1px solid #e8ebee; */
+  border-radius: 6px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .searchResult-link {
   color: gray;
 }
@@ -14,6 +44,10 @@
 .searchResult-link :visited,
 :link {
   text-decoration: none;
+}
+
+.searchCont{
+  font-size: 15px;
 }
 
 /* .searchsection {
@@ -51,10 +85,11 @@
   padding-bottom: 30px;
   padding-left: 10px;
   padding-right: 10px;
+  margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
-  border: 1px solid gray;
-  background-color: rgb(248, 247, 247);
+  /* border: 1px solid lightpink; */
+  /* background-color: rgb(248, 247, 247); */
   border-radius: 5px;
 }
 
