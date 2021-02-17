@@ -18,16 +18,32 @@
       </div>
     </div> -->
     <div class="searchtext-section">
-      <% for (let i = 0 ; i < Object.keys(searchResult.lstOfText).length;i++){
-      %>
-      <div class="searchResult-link">
-        <a href="<%= searchResult.lstOfLink[i] %>">
-          <span><%= searchResult.lstOfText[i] %></span>
-          <br />
-        </a>
-        <span><%= searchResult.lstOfSub[i] %></span>
-      </div>
-      <% } %>
+      <table class="searchContent">
+        <thead>
+          <tr>
+            <th colspan="2">검색 내역</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (let i = 0 ; i < Object.keys(searchResult.lstOfText).length;i++){
+          %>
+          <!-- <div class="searchResult-link"> -->
+            <tr>
+            <td>
+              <a href="<%= searchResult.lstOfLink[i] %>">
+                <span><%= searchResult.lstOfText[i] %></span>
+                <!-- <br /> -->
+              </a>
+            </td>
+            <td>
+              <span>- <%= searchResult.lstOfSub[i] %></span>
+              <br>&nbsp;
+            </td>
+            </tr>
+          <!-- </div> -->
+          <% } %>
+      </tbody>
+      </table>
     </div>
     <img src="/images/chatbot.png" id="chatbotimg" width="20px" height="20px" />
     <% include ../views/footer %>
