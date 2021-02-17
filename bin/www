@@ -12,6 +12,9 @@ const updateData = require("../conf/updateData");
 let moment = require("moment");
 let curDate = moment().format("YYYYMMDD");
 let logger = require("../conf/winston");
+const dbConObj = require("../conf/db_info");
+const dbconn = dbConObj.init();
+const calToday = require("../conf/calToday");
 
 /**
  * Get port from environment and store in Express.
@@ -36,20 +39,19 @@ server.on("listening", onListening);
 console.log(update_info.isUpdate);
 
 const fetchData = schedule.scheduleJob("0 0 */1 * * *", () => {
-  if (!update_info.isUpdate) {
-    updateData(curDate, (key) => {
-      if (key == 1) {
-        update_info.didUpdate();
-        logger.info("update_info:", update_info, "Updating complete");
+  let curMonth = moment().format("YYYYMM");
+  let curSeq = calToday();
+  dbconn.query(
+    `SELECT seq FROM covid${curMonth} WHERE seq >='${curSeq}'`,
+    (error, result, fields) => {
+      if (result[0]) {
+        logger.info("Did already");
       } else {
-        update_info.clrUpdate();
+        updateDate(curDate, (key) => {});
+        logger.info("Updating complete");
       }
-    });
-    console.log(update_info.isUpdate);
-  } else {
-    update_info.didUpdate();
-    logger.info("Did already");
-  }
+    }
+  );
 });
 
 const refreshUpdate = schedule.scheduleJob("0 5 0 * * *", () => {
