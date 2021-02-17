@@ -29,14 +29,19 @@ router.get("/", (req, res, next) => {
   let todaySelect = `SELECT * FROM covid${curMonth} WHERE gubun = '합계' and seq >= '${todaySeq}'`;
   let citySelect = `SELECT defCnt, incDec FROM covid${curMonth} WHERE seq >= '${todaySeq}' and gubun != '합계'`;
 
-  if (update_info.isUpdate == false) {
-    todaySelect = `SELECT * FROM covid${curMonth} WHERE gubun = '합계' and seq >= '${
-      todaySeq - 19
-    }' `;
-    citySelect = `SELECT defCnt, incDec FROM covid${curMonth} WHERE seq >= '${
-      todaySeq - 19
-    }' and gubun != '합계'`;
-  }
+  dbconn.query(
+    `SELECT seq FROM covid${curMonth} WHERE seq >='${todaySeq}'`,
+    (error, result, fields) => {
+      if (!result[0]) {
+        todaySelect = `SELECT * FROM covid${curMonth} WHERE gubun = '합계' and seq >= '${
+          todaySeq - 19
+        }' `;
+        citySelect = `SELECT defCnt, incDec FROM covid${curMonth} WHERE seq >= '${
+          todaySeq - 19
+        }' and gubun != '합계'`;
+      }
+    }
+  );
 
   let diststepSelect = `SELECT * FROM diststep`;
   dbconn.query(dailyCovidSql, (error, dailyResults, fields) => {

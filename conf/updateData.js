@@ -87,18 +87,14 @@ function updateData(checkDate, callback) {
             objResult.response.body.items.item[i].isolClearCnt._text;
           // INSERT QUERY
           // console.log(objResult.response.body.items.item[i]);
-          if (!update_info.isUpdate) {
-            dbconn.query(
-              `INSERT INTO covid${dbMonth}(seq,gubun,defCnt,incDec,stdDay,gubunCn,gubunEn,qurRate,createDt,deathCnt,updateDt,isolIngCnt,localOccCnt,overFlowCnt,isolClearCnt) values ('${covidSeq}','${covidGubun}', '${covidDefCnt}','${covidIncDec}','${covidStdDay}','${covidGubunCn}','${covidGubunEn}','${covidQurRate}','${covidCreateDt}','${covidDeathCnt}','${covidUpdateDt}','${covidIsolIngCnt}','${covidLocalOccCnt}','${covidOverFlowCnt}','${covidIsolClearCnt}')`,
-              (error, rows, fields) => {
-                if (error) throw error;
-                // console.log("query did work");
-              }
-            );
-          } else {
-            logger.info("Did already <= updateData.js");
-            callback(4);
-          }
+
+          dbconn.query(
+            `INSERT INTO covid${dbMonth}(seq,gubun,defCnt,incDec,stdDay,gubunCn,gubunEn,qurRate,createDt,deathCnt,updateDt,isolIngCnt,localOccCnt,overFlowCnt,isolClearCnt) values ('${covidSeq}','${covidGubun}', '${covidDefCnt}','${covidIncDec}','${covidStdDay}','${covidGubunCn}','${covidGubunEn}','${covidQurRate}','${covidCreateDt}','${covidDeathCnt}','${covidUpdateDt}','${covidIsolIngCnt}','${covidLocalOccCnt}','${covidOverFlowCnt}','${covidIsolClearCnt}')`,
+            (error, rows, fields) => {
+              if (error) throw error;
+              // console.log("query did work");
+            }
+          );
         } // for loop end
         callback(1);
       }
