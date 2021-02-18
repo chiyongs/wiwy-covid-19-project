@@ -50,8 +50,8 @@ table.coronaboard th {
   color: #6d6763;
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
-  position: sticky;
-  top: 0px;
+  /* position: sticky;
+  top: 0px; */
 }
 
 table.coronaboard td {
