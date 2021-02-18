@@ -29,7 +29,7 @@ button {
 /* 서울 */
 button.area1 {
   position: relative;
-  top: -450px;
+  top: -465px;
   left: 180px;
   background: #fff;
   text-align: center;
@@ -41,7 +41,7 @@ button.area1 {
 button.area2 {
   position: relative;
   top: -280px;
-  left: 360px;
+  left: 330px;
   background: #fff;
   text-align: center;
   box-shadow: 2px 2px 4px rgb(100 100 100 / 20%);
@@ -51,7 +51,7 @@ button.area2 {
 /* 인천 */
 button.area3 {
   position: relative;
-  top: -520px;
+  top: -550px;
   left: 120px;
   background: #fff;
   text-align: center;
@@ -62,7 +62,7 @@ button.area3 {
 /* 경기 */
 button.area4 {
   position: relative;
-  top: -620px;
+  top: -720px;
   left: 230px;
   background: #fff;
   text-align: center;
@@ -73,7 +73,7 @@ button.area4 {
 /* 강원 */
 button.area5 {
   position: relative;
-  top: -720px;
+  top: -760px;
   left: 310px;
   background: #fff;
   text-align: center;
@@ -84,8 +84,8 @@ button.area5 {
 /* 세종 */
 button.area6 {
   position: relative;
-  top: -675px;
-  left: 200px;
+  top: -710px;
+  left: 220px;
   background: #fff;
   text-align: center;
   box-shadow: 2px 2px 4px rgb(100 100 100 / 20%);
@@ -95,7 +95,7 @@ button.area6 {
 /* 충북 */
 button.area7 {
   position: relative;
-  top: -730px;
+  top: -790px;
   left: 270px;
   background: #fff;
   text-align: center;
@@ -106,7 +106,7 @@ button.area7 {
 /* 충남 */
 button.area8 {
   position: relative;
-  top: -760px;
+  top: -800px;
   left: 160px;
   background: #fff;
   text-align: center;
@@ -117,8 +117,8 @@ button.area8 {
 /* 대전 */
 button.area9 {
   position: relative;
-  top: -810px;
-  left: 220px;
+  top: -830px;
+  left: 250px;
   background: #fff;
   text-align: center;
   box-shadow: 2px 2px 4px rgb(100 100 100 / 20%);
@@ -128,7 +128,7 @@ button.area9 {
 /* 경북 */
 button.area10 {
   position: relative;
-  top: -930px;
+  top: -980px;
   left: 340px;
   background: #fff;
   text-align: center;
@@ -139,8 +139,8 @@ button.area10 {
 /* 전북 */
 button.area11 {
   position: relative;
-  top: -910px;
-  left: 200px;
+  top: -920px;
+  left: 190px;
   background: #fff;
   text-align: center;
   box-shadow: 2px 2px 4px rgb(100 100 100 / 20%);
@@ -150,7 +150,7 @@ button.area11 {
 /* 대구 */
 button.area12 {
   position: relative;
-  top: -1000px;
+  top: -1020px;
   left: 320px;
   background: #fff;
   text-align: center;
@@ -161,8 +161,8 @@ button.area12 {
 /* 전남 */
 button.area13 {
   position: relative;
-  top: -960px;
-  left: 220px;
+  top: -970px;
+  left: 150px;
   background: #fff;
   text-align: center;
   box-shadow: 2px 2px 4px rgb(100 100 100 / 20%);
@@ -172,8 +172,8 @@ button.area13 {
 /* 광주 */
 button.area14 {
   position: relative;
-  top: -1060px;
-  left: 170px;
+  top: -1040px;
+  left: 210px;
   background: #fff;
   text-align: center;
   box-shadow: 2px 2px 4px rgb(100 100 100 / 20%);
@@ -183,8 +183,8 @@ button.area14 {
 /* 경남 */
 button.area15 {
   position: relative;
-  top: -1100px;
-  left: 300px;
+  top: -1140px;
+  left: 270px;
   background: #fff;
   text-align: center;
   box-shadow: 2px 2px 4px rgb(100 100 100 / 20%);
@@ -205,8 +205,8 @@ button.area16 {
 /* 제주 */
 button.area17 {
   position: relative;
-  top: -1100px;
-  left: 170px;
+  top: -1080px;
+  left: 150px;
   background: #fff;
   text-align: center;
   box-shadow: 2px 2px 4px rgb(100 100 100 / 20%);
