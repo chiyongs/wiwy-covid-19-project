@@ -20,6 +20,30 @@
   padding-left: 100px;
 }
 
+.fourthsection{
+  margin-top: 100px;
+  /* margin-bottom: 200px; */
+  height: 500px;
+  padding-right: 100px;
+  padding-left: 100px;
+}
+.fourthleft{
+  width: 50%;
+  height: 600px;
+  float: left;
+  box-sizing: border-box;
+  background-color: rgb(178, 214, 255);
+  padding: 20px 50px 20px 50px;
+}
+.fourthright{
+  width: 50%;
+  height: 600px;
+  float: left;
+  box-sizing: border-box;
+  background-color: rgb(178, 214, 255);
+  padding: 20px 50px 20px 50px;
+}
+
 .livenews {
   width: 90%;
   height: 10%;
