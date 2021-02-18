@@ -15,6 +15,7 @@ let logger = require("../conf/winston");
 const dbConObj = require("../conf/db_info");
 const dbconn = dbConObj.init();
 const calToday = require("../conf/calToday");
+const getDisMsg = require("../conf/disMsg");
 
 /**
  * Get port from environment and store in Express.
@@ -52,6 +53,10 @@ const fetchData = schedule.scheduleJob("0 0 */1 * * *", () => {
       }
     }
   );
+});
+
+const fetchMsg = schedule.scheduleJob("0 */5 * * * *", () => {
+  getDisMsg();
 });
 
 const refreshUpdate = schedule.scheduleJob("0 5 0 * * *", () => {

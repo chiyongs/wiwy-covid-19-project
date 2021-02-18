@@ -69,6 +69,27 @@ const funcConv = {
     }
     return resultList;
   },
+  msgConv: (result) => {
+    let resultList = [];
+    for (let i = 0; i < result.length; i++) {
+      resultList[i] = result[i].msg;
+    }
+    return resultList;
+  },
+  locNameConv: (result) => {
+    let resultList = [];
+    for (let i = 0; i < result.length; i++) {
+      resultList[i] = result[i].loc_name;
+    }
+    return resultList;
+  },
+  crDateConv: (result) => {
+    let resultList = [];
+    for (let i = 0; i < result.length; i++) {
+      resultList[i] = result[i].cr_date;
+    }
+    return resultList;
+  },
 };
 
 module.exports = funcConv;

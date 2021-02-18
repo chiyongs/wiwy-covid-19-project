@@ -1,6 +1,10 @@
 var request = require("request");
+const dbConObj = require("./db_info");
+const logger = require("./winston");
+const dbconn = dbConObj.init();
+// let logger = require("./winston");
 
-function getDisMsg(getCreateDate, getLoc_name, getContent) {
+function getDisMsg() {
   var url = "http://apis.data.go.kr/1741000/DisasterMsg2/getDisasterMsgList";
   var queryParams =
     "?" +
@@ -30,11 +34,35 @@ function getDisMsg(getCreateDate, getLoc_name, getContent) {
       if (error) throw error;
       let msg = JSON.parse(body);
       if (msg.DisasterMsg[0].head[2].RESULT.resultCode == "INFO-0") {
-        console.log("Load disMsg complete <= disMsg.js");
-        console.log("totalCount", msg.DisasterMsg[0].head[0].totalCount);
-        getCreateDate(msg.DisasterMsg[1].row[0].create_date);
-        getLoc_name(msg.DisasterMsg[1].row[0].location_name);
-        getContent(msg.DisasterMsg[1].row[0].msg);
+        dbconn.query(
+          `SELECT MAX(sn) FROM dismsg`,
+          (error, snResults, fields) => {
+            if (snResults == msg.DisasterMsg[1].row[0].md101_sn) {
+              logger.info("Same sn dismsg exists");
+              return;
+            } else {
+              // for (
+              // let i = 0;
+              // i < Object.keys(msg.DisasterMsg[1].row).length;
+              // i++
+              // ) {
+              var parMsg = msg.DisasterMsg[1].row[0];
+              dbconn.query(
+                `INSERT INTO dismsg(sn,msg,cr_date,loc_name) values ('${parMsg.md101_sn}','${parMsg.msg}','${parMsg.create_date}','${parMsg.location_name}')`,
+                (error, results, fields) => {
+                  if (error) throw error;
+                }
+              );
+              logger.info("Dismsg updated");
+            }
+            // }
+          }
+        );
+        // console.log("Load disMsg complete <= disMsg.js");
+        // console.log("totalCount", msg.DisasterMsg[0].head[0].totalCount);
+        // getCreateDate(msg.DisasterMsg[1].row[0].create_date);
+        // getLoc_name(msg.DisasterMsg[1].row[0].location_name);
+        // getContent(msg.DisasterMsg[1].row[0].msg);
       } else {
         console.log("Can not load msg");
         return;
@@ -42,5 +70,7 @@ function getDisMsg(getCreateDate, getLoc_name, getContent) {
     }
   );
 }
+
+// getDisMsg();
 
 module.exports = getDisMsg;
