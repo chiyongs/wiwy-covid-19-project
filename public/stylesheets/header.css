@@ -1,17 +1,17 @@
 .logotitle {
   margin: 0px 0px 0px 0px;
   background-color: rgba(0, 0, 0, 0.5);
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 }
 
 .logotitle h1 {
   margin: 0px 0px 0px 0px;
-  padding-top: 15px;
+  padding-top: 5px;
   padding-right: 10px;
   color: white;
   /* font-weight: bold;
     filter: drop-shadow(5px 5px 5px #100); */
-  font-size: 20px;
+  font-size: 1vw;
   font-weight: bold;
   float: right;
   letter-spacing: 3px;
