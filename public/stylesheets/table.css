@@ -42,28 +42,38 @@ table.style01 td {
 table.style02 {
   left: 50%;
   top: 50%;
-  width: 80%;
+  width: 40%;
   border-collapse: collapse;
   border-spacing: 0;
-  border-radius: 12px 12px 0 0;
+  border-radius: 3px;
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(32, 32, 32, 0.3);
   background: #fafafa;
   text-align: center;
   margin: auto;
-  margin-top: 50px;
   margin-bottom: 50px;
 }
 
 table.style02 th {
   padding: 12px 15px;
-  background: #ba68c8;
-  color: #fafafa;
+  /* background: #ba68c8; */
+  color: rgb(90, 90, 90);
   text-transform: uppercase;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
-table.style02 td {
+.thstyle01 {
   padding: 12px 15px;
+  font-size : 12px;
+  font-weight: 600;
   font-family: "Open Sans", sans-serif;
+  background: #F2F2F2;
+  color: rgb(90, 90, 90);
+}
+.thstyle02 {
+  padding: 12px 15px;
+  font-size : 12px;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(90, 90, 90);
 }

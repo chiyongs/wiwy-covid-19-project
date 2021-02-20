@@ -6,6 +6,7 @@
 @import url("table.css");
 @import url("map.css");
 @import url("searchView.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans+KR&family=Open+Sans&display=swap');
 
 body {
   margin: 0;
