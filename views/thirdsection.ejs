@@ -8,13 +8,13 @@
     <% for(let i=0; i<10 ; i++) { 
       if( i%2 == 0) { %>
     <tr>
-      <td class="thstyle01">내용</td>
+      <td class="thstyle01"><%= i+1 %> <img src="../images/<%= i+1 %>.png" style="width:15px; height:10px;"></td>
       <td class="thstyle01">내용</td>
       <td class="thstyle01">내용</td>
     </tr>
     <% } else { %>
       <tr>
-        <td class="thstyle02">내용</td>
+        <td class="thstyle02"><%= i+1 %> <img src="../images/<%= i+1 %>.png" style="width:15px; height:10px;"></td>
         <td class="thstyle02">내용</td>
         <td class="thstyle02">내용</td>
       </tr>
