@@ -20,6 +20,7 @@ router.get("/:searchTitle", (req, res, next) => {
     lstOfText: [],
     lstOfLink: [],
     lstOfSub: [],
+    lstOfRelated: [],
   };
   client.fetch(
     "http://www.google.com/search",
@@ -30,6 +31,7 @@ router.get("/:searchTitle", (req, res, next) => {
       let aList = $("div.yuRUbf").children("a");
       let h3List = aList.children("h3");
       let subList = $("div.IsZvec").children("div").children("span");
+      let related = $("div.dZtbP").find("a.k8XOCe");
       for (let i = 0; i < aList.length; i++) {
         searchResult.lstOfText.push($(h3List[i]).text());
         searchResult.lstOfLink.push($(aList[i]).attr("href"));
@@ -39,6 +41,9 @@ router.get("/:searchTitle", (req, res, next) => {
       }
       for (let i = 0; i < subList.length; i++) {
         searchResult.lstOfSub.push($(subList[i]).text());
+      }
+      for (let i = 0; i < related.length; i++) {
+        searchResult.lstOfRelated.push($(related[i]).text());
       }
       //   return searchResult;
       //   res.send(searchResult);

@@ -66,12 +66,12 @@
     </div>
     <div class="searchtextsub-section">
       <p style="text-align: center; font-size: 18px; font-weight: 600;">연관 검색어</p>
-      <p class="keyword-section"><img src="/images/seach.png" id="seachimg" width="15px" height="14px"/>  이건 어떤가요??</p>
-      <p class="keyword-section"><img src="/images/seach.png" id="seachimg" width="15px" height="14px"/>  이건 어떤가요??</p>
-      <p class="keyword-section"><img src="/images/seach.png" id="seachimg" width="15px" height="14px"/>  이건 어떤가요??</p>
-      <p class="keyword-section"><img src="/images/seach.png" id="seachimg" width="15px" height="14px"/>  이건 어떤가요??</p>
-      <p class="keyword-section"><img src="/images/seach.png" id="seachimg" width="15px" height="14px"/>  이건 어떤가요??</p>
-      <p class="keyword-section"><img src="/images/seach.png" id="seachimg" width="15px" height="14px"/>  이건 어떤가요??</p>
+      <% for (let i = 0; i < Object.keys(searchResult.lstOfRelated).length; i++) { %>
+        <p class="keyword-section"><img src="/images/seach.png" id="seachimg" width="15px" height="14px">
+          <%= searchResult.lstOfRelated[i] %>
+         </p>
+      <%}%>
+      
       </div>
     <img src="/images/chatbot.png" id="chatbotimg" width="20px" height="20px" />
     <% include ../views/footer %>
