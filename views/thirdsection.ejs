@@ -5,20 +5,17 @@
       <th>총 확진자</th>
       <th>총 사망자</th>
     </tr>
-    <% for(let i=0; i<10 ; i++) { 
-      if( i%2 == 0) { %>
+    <% for(let i=0; i<190 ; i++) { %>
     <tr>
-      <td class="thstyle01"><%= i+1 %> <img src="../images/<%= i+1 %>.png" style="width:15px; height:10px;"></td>
-      <td class="thstyle01">내용</td>
-      <td class="thstyle01">내용</td>
+      <td class="thstyle01">
+        <%= nationNm[i] %><img
+          src="../images/<%= i+1 %>.png"
+          style="width: 15px; height: 10px"
+        />
+      </td>
+      <td class="thstyle01"><%= natDefCnt[i] %></td>
+      <td class="thstyle01"><%= natDeathCnt[i] %></td>
     </tr>
-    <% } else { %>
-      <tr>
-        <td class="thstyle02"><%= i+1 %> <img src="../images/<%= i+1 %>.png" style="width:15px; height:10px;"></td>
-        <td class="thstyle02">내용</td>
-        <td class="thstyle02">내용</td>
-      </tr>
-    <% } 
-    } %>
+    <% } %>
   </table>
 </div>

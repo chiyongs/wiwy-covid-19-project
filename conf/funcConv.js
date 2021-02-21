@@ -90,6 +90,27 @@ const funcConv = {
     }
     return resultList;
   },
+  nationNmConv: (result) => {
+    let resultList = [];
+    for (let i = 0; i < result.length; i++) {
+      resultList[i] = result[i].nationNm;
+    }
+    return resultList;
+  },
+  natDefCntConv: (result) => {
+    let resultList = [];
+    for (let i = 0; i < result.length; i++) {
+      resultList[i] = result[i].natDefCnt;
+    }
+    return resultList;
+  },
+  natDeathCntConv: (result) => {
+    let resultList = [];
+    for (let i = 0; i < result.length; i++) {
+      resultList[i] = result[i].natDeathCnt;
+    }
+    return resultList;
+  },
 };
 
 module.exports = funcConv;

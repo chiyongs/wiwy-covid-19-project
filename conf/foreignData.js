@@ -6,6 +6,7 @@ const logger = require("./winston");
 const dbconn = dbConObj.init();
 
 function foreignData(checkDate, callback) {
+  const dbMonth = moment().format("YYYYMMDD");
   var url =
     "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19NatInfStateJson";
   var queryParams =
@@ -64,7 +65,7 @@ function foreignData(checkDate, callback) {
           fDnatDefCnt = objResult.response.body.items.item[i].natDefCnt._text;
 
           dbconn.query(
-            `INSERT INTO fdcovid(seq,nationNm,natDefCnt,natDeathCnt) values ('${fDseq}','${fDnationNm}','${fDnatDefCnt}','${fDnatDeathCnt}')`,
+            `INSERT INTO fdcovid${dbMonth}(seq,nationNm,natDefCnt,natDeathCnt) values ('${fDseq}','${fDnationNm}','${fDnatDefCnt}','${fDnatDeathCnt}')`,
             (error, results, fields) => {
               if (error) throw error;
             }
@@ -76,4 +77,6 @@ function foreignData(checkDate, callback) {
   );
 }
 
-foreignData("20210221", () => {});
+// foreignData("20210221", () => {});
+
+module.exports = foreignData;
