@@ -45,7 +45,7 @@ function updateData(checkDate, callback) {
         compact: true,
         spaces: 2,
       });
-      objResult = JSON.parse(stringResult);
+      let objResult = JSON.parse(stringResult);
       console.log(
         "response.resultCode :",
         objResult.response.header.resultCode._text,
