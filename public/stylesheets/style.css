@@ -6,7 +6,7 @@
 @import url("table.css");
 @import url("map.css");
 @import url("searchView.css");
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans+KR&family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans+KR&family=Open+Sans&display=swap");
 
 body {
   margin: 0;
@@ -17,7 +17,7 @@ body {
 }
 
 .text-section {
-  background-color: black;
+  background-color: rgb(11, 38, 73);
   text-align: center;
 }
 
