@@ -89,6 +89,7 @@ function updateData(checkDate, callback) {
           // console.log(objResult.response.body.items.item[i]);
 
           dbconn.query(
+            // `UPDATE covid${dbMonth} SET gubun = '${covidGubun}', defCnt = '${covidDefCnt}', incDec = '${covidIncDec}', stdDay = '${covidStdDay}', gubunCn = '${covidGubunCn}', gubunEn = '${covidGubunEn}', qurRate = '${covidQurRate}', createDt='${covidCreateDt}', deathCnt='${covidDeathCnt}', updateDt='${covidUpdateDt}', isolIngCnt='${covidIsolIngCnt}', localOccCnt='${covidLocalOccCnt}', overFlowCnt='${covidOverFlowCnt}', isolClearCnt='${covidIsolClearCnt}' WHERE seq = '${covidSeq}'`,
             `INSERT INTO covid${dbMonth}(seq,gubun,defCnt,incDec,stdDay,gubunCn,gubunEn,qurRate,createDt,deathCnt,updateDt,isolIngCnt,localOccCnt,overFlowCnt,isolClearCnt) values ('${covidSeq}','${covidGubun}', '${covidDefCnt}','${covidIncDec}','${covidStdDay}','${covidGubunCn}','${covidGubunEn}','${covidQurRate}','${covidCreateDt}','${covidDeathCnt}','${covidUpdateDt}','${covidIsolIngCnt}','${covidLocalOccCnt}','${covidOverFlowCnt}','${covidIsolClearCnt}')`,
             (error, rows, fields) => {
               if (error) throw error;
@@ -102,6 +103,6 @@ function updateData(checkDate, callback) {
   );
 }
 
-// updateData();
+// updateData("20210222", () => {});
 
 module.exports = updateData;

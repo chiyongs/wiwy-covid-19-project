@@ -1,32 +1,29 @@
-let client = require("cheerio-httpcli");
+const puppeteer = require("puppeteer");
 
-// 검색어
-var word = "apple"; //이 검색부분을 getElementby를 써서 검색창에 입력되는 값을 가져온다.
+(async () => {
+  // headless 브라우저 실행
+  const browser = await puppeteer.launch();
+  // 새로운 페이지 열기
+  const page = await browser.newPage();
+  // `https://ko.reactjs.org/` URL에 접속
+  await page.goto("https://www.google.com/search?q=apple/");
+  // `ko-reactjs-homepage.png` 스크린샷을 캡처 하여 Docs 폴더에 저장
 
-let printHttpResponse = () =>
-  client.fetch(
-    "http://www.google.com/search",
-    { q: word },
-    (err, $, res, body) => {
-      // console.log(body);
-      //div yuRUbf의 클래스 안에있는 것들 서치
-      if (err) throw err;
-      // console.log($);
-      let happy = $("div.dZtbP");
-      let melody = $("div.dZtbP").find("a.k8XOCe");
+  /****************
+   * 원하는 작업 수행 *
+   *
+   ****************/
+  let data = await page.$eval(
+    "#bzMwOe > div > div > div > div:nth-child(1) > a:nth-child(1)",
 
-      // .children("div.s75CSd");
-
-      // let subList = $("div.IsZvec").children("div").children("span");
-      // for (let i = 0; i < happy.length; i++) {
-      // console.log($(aList[i]).text()); //yuRUbf안에 있는 텍스트 출력
-      // console.log($(aList[i])); //링크 출력
-      // console.log($(happy[i]).text());
-      // }
-      for (let i = 0; i < melody.length; i++) {
-        console.log($(melody[i]).text());
-      }
+    (element) => {
+      return element.textContent;
     }
   );
 
-printHttpResponse();
+  console.log(data);
+
+  // console.log((abc = reactHistory));
+  // 모든 스크래핑 작업을 마치고 브라우저 닫기
+  await browser.close();
+})();
