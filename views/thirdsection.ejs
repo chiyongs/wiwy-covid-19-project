@@ -5,13 +5,15 @@
       <th>총 확진자</th>
       <th>총 사망자</th>
     </tr>
-    <% for(let i=0; i<190 ; i++) { %>
+    <% for(let i=0; i<180 ; i++) { %>
     <tr>
-      <td class="thstyle01">
-        <%= nationNm[i] %><img
+      <td class="thstyle01" style="text-align: left;">
+        <%= i+1 %>
+        <img
           src="../images/<%= i+1 %>.png"
           style="width: 15px; height: 10px"
-        />
+        /> 
+        <%= nationNm[i] %>
       </td>
       <td class="thstyle01"><%= natDefCnt[i] %></td>
       <td class="thstyle01"><%= natDeathCnt[i] %></td>
