@@ -43,26 +43,19 @@
   height: 80%;
   float: left;
   box-sizing: border-box;
-  background-color: rgb(229, 253, 238);
+  /* background-color: rgb(229, 253, 238); */
   /* padding: 3vw 5vw 3vw 5vw; */
 }
 
-.fourth-outline {
-  /* margin-top :5%; */
-  margin-left: 1%;
-  margin-right: 1%;
-  height: 480px;
-  border: 3px solid lightskyblue;
-}
-
 .fourth-newssection {
-  margin-top: 1%;
-  margin-left: 1%;
-  margin-right: 1%;
-  height: 30%;
-  background-color: #fff;
-  border: 1px solid #e8e8ee;
-  border-radius: 5px;
+  float: left;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  /* width: 50%; */
+  /* height: 150px; */
+  height: 31%;
+  padding: 0;
+  margin: 2%;
 }
 
 .fourth-img {
