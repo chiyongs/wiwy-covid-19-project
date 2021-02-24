@@ -43,11 +43,13 @@ router.get("/", (req, res, next) => {
     }
   );
 
+  console.log(foreignSeq);
   dbconn.query(
-    `SELECT seq FROM fdcovid${curForeign} WHERE seq >='${foreignSeq}'`,
+    `SELECT * FROM fdcovid${curForeign} WHERE seq >='${foreignSeq}'`,
     (error, result, fields) => {
       if (!result[0]) {
-        foreignSelect = `SELECT * FROM fdcovid${curForeign} WHERE seq >= '${
+        let lastMonth = moment().subtract("1", "d").format("YYYYMMDD");
+        foreignSelect = `SELECT * FROM fdcovid${lastMonth} WHERE seq >= '${
           foreignSeq - 190
         }'`;
       }
