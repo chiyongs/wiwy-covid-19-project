@@ -68,9 +68,9 @@ router.get("/", (req, res, next) => {
                 natDefCnt: funcConv.natDefCntConv(foreignResults),
                 natDeathCnt: funcConv.natDeathCntConv(foreignResults),
 
-                disMsg: funcConv.msgConv(msgResults),
-                crDate: funcConv.crDateConv(msgResults),
-                locName: funcConv.locNameConv(msgResults),
+                // disMsg: funcConv.msgConv(msgResults),
+                // crDate: funcConv.crDateConv(msgResults),
+                // locName: funcConv.locNameConv(msgResults),
 
                 dailyData: funcConv.incDecConv(dailyResults),
                 cityCount: funcConv.defCntConv(cityResults),
