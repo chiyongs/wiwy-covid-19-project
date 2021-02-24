@@ -63,7 +63,7 @@ const fetchForeignData = schedule.scheduleJob("30 0 */1 * * *", () => {
   let curMonth = moment().format("YYYYMMDD");
   let curSeq = calForeign();
   dbconn.query(
-    `SELECT seq FROM fdcovid${curMonth} WHERE seq >='${curSeq}'`,
+    `SELECT seq FROM fdcovid${curMonth} WHERE seq ='${curSeq + 189}'`,
     (error, result, fields) => {
       if (result[0]) {
         logger.info("Did already");

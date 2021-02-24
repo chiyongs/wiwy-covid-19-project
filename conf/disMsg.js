@@ -41,18 +41,20 @@ function getDisMsg() {
               logger.info("Same sn dismsg exists");
               return;
             } else {
-              // for (
-              // let i = 0;
-              // i < Object.keys(msg.DisasterMsg[1].row).length;
-              // i++
-              // ) {
-              var parMsg = msg.DisasterMsg[1].row[0];
-              dbconn.query(
-                `INSERT INTO dismsg(sn,msg,cr_date,loc_name) values ('${parMsg.md101_sn}','${parMsg.msg}','${parMsg.create_date}','${parMsg.location_name}')`,
-                (error, results, fields) => {
-                  if (error) throw error;
-                }
-              );
+              for (
+                let i = 0;
+                i < Object.keys(msg.DisasterMsg[1].row).length;
+                i++
+              ) {
+                var parMsg = msg.DisasterMsg[1].row[i];
+
+                dbconn.query(
+                  `INSERT INTO dismsg(sn,msg,cr_date,loc_name) values ('${parMsg.md101_sn}','${parMsg.msg}','${parMsg.create_date}','${parMsg.location_name}')`,
+                  (error, results, fields) => {
+                    if (error) throw error;
+                  }
+                );
+              }
               logger.info("Dismsg updated");
             }
             // }
