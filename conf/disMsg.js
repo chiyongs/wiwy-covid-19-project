@@ -2,9 +2,11 @@ var request = require("request");
 const dbConObj = require("./db_info");
 const logger = require("./winston");
 const dbconn = dbConObj.init();
+let moment = require("moment");
 // let logger = require("./winston");
 
 function getDisMsg() {
+  const curDate = moment().format("YYYYMMDD");
   var url = "http://apis.data.go.kr/1741000/DisasterMsg2/getDisasterMsgList";
   var queryParams =
     "?" +
@@ -49,7 +51,7 @@ function getDisMsg() {
                 var parMsg = msg.DisasterMsg[1].row[i];
 
                 dbconn.query(
-                  `INSERT INTO dismsg(sn,msg,cr_date,loc_name) values ('${parMsg.md101_sn}','${parMsg.msg}','${parMsg.create_date}','${parMsg.location_name}')`,
+                  `INSERT INTO dismsg${curDate}(sn,msg,cr_date,loc_name) values ('${parMsg.md101_sn}','${parMsg.msg}','${parMsg.create_date}','${parMsg.location_name}')`,
                   (error, results, fields) => {
                     if (error) throw error;
                   }
