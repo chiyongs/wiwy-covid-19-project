@@ -223,16 +223,23 @@ h1 {
   padding-right: 100px;
   padding-left: 100px;
   padding-bottom: 50px;
+}
+
+.link {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .box {
   width: 70px;
   height: 23px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgb(255, 249, 215);
   transition: 1s;
   text-align: center;
   border: 2px solid black;
+  border-radius: 10px;
   margin: 10px 10px 10px 10px;
   font-size: 17px;
   font-weight: bold;
