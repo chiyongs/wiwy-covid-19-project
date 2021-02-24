@@ -23,7 +23,6 @@ router.get("/", (req, res, next) => {
   if (checkDay <= "06") {
     let lastMonth = moment().subtract("1", "M").format("YYYYMM");
     dailyCovidSql = `SELECT incDec FROM covid${lastMonth} WHERE gubun = '합계' and seq >= '${seqNum}' UNION SELECT incDec FROM covid${curMonth} WHERE gubun='합계' and seq >= '${seqNum}'`;
-    cityCovidSql = `SELECT defCnt FROM covid${lastMonth} WHERE seq >='${seqNum}' and gubun != '합계' UNION SELECT gubun,defCnt FROM covid${curMonth} WHERE seq >='${seqNum}' and gubun != '합계'`;
   }
   let todaySeq = calToday();
   let todaySelect = `SELECT * FROM covid${curMonth} WHERE gubun = '합계' and seq >= '${todaySeq}'`;

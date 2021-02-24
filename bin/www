@@ -18,6 +18,7 @@ const dbconn = dbConObj.init();
 const calToday = require("../conf/calToday");
 const calForeign = require("../conf/calForeign");
 const getDisMsg = require("../conf/disMsg");
+const calculateSeq = require("../conf/calculateSeq");
 
 /**
  * Get port from environment and store in Express.
@@ -40,7 +41,7 @@ server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
 console.log(update_info.isUpdate);
-let abc = calToday();
+let abc = calculateSeq();
 console.log(abc);
 const fetchData = schedule.scheduleJob("0 0 */1 * * *", () => {
   let curMonth = moment().format("YYYYMM");
