@@ -85,7 +85,7 @@ h1 {
   height: 700px;
   float: left;
   box-sizing: border-box;
-  background-color: rgb(234, 247, 217);
+  background-color: rgba(250, 249, 246, 0.973);
   padding: 3vw 5vw 3vw 5vw;
 }
 
@@ -219,7 +219,7 @@ h1 {
   height: 80%;
   float: left;
   box-sizing: border-box;
-  background-color: rgb(229, 253, 238);
+  background-color: rgba(250, 249, 246, 0.973);
   padding: 3vw 5vw 3vw 5vw;
 }
 
