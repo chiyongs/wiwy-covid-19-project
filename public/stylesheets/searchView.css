@@ -6,27 +6,27 @@
   width: 60%;
   float: left;
 }
-.searchhead-section{
+.searchhead-section {
   text-align: center;
-  font-size:22px;
+  font-size: 22px;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin-left:26px;
+  margin-left: 26px;
   background-color: #fff;
   border: 1px solid #e8e8ee;
 }
-.searchtextsub-section{
+.searchtextsub-section {
   margin-left: 10%;
   margin-top: 100px;
   padding: 15px 30px 15px 30px;
   border: 1px solid #e8ebee;
   border-radius: 6px;
   width: auto;
-  float: left;  
+  float: left;
   background-color: #fff;
 }
 
-.keyword-section{
+.keyword-section {
   /* border: 1px solid #e8ebee; */
   border-radius: 6px;
   margin-top: 20px;
@@ -46,7 +46,7 @@
   text-decoration: none;
 }
 
-.searchCont{
+.searchCont {
   font-size: 15px;
 }
 
@@ -92,4 +92,3 @@
   /* background-color: rgb(248, 247, 247); */
   border-radius: 5px;
 }
-

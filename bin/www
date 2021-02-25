@@ -88,8 +88,23 @@ const crForeignData = schedule.scheduleJob("5 0 0 * * *", () => {
     (error, result, fields) => {
       if (error) logger.info("Create fdcovid error");
       dbconn.query(
-        `ALTER TABLE fdcovid${crTableDate} convert to charset utf8;`,
-        (error, result, fields) => {}
+        `create table dismsg${crTableDate} (
+        sn char(6),
+          msg varchar(400),
+          cr_date char(20),
+          loc_name char(30)
+      )`,
+        (error, result, fields) => {
+          dbconn.query(
+            `ALTER TABLE fdcovid${crTableDate} convert to charset utf8`,
+            (error, result, fields) => {
+              dbconn.query(
+                `ALTER TABLE dismsg${crTableDate} convert to charset utf8`,
+                (error, result, fields) => {}
+              );
+            }
+          );
+        }
       );
     }
   );
@@ -99,6 +114,10 @@ const drForeignData = schedule.scheduleJob("0 0 0 * * *", () => {
   let drTableDate = moment().subtract(2, "days").format("YYYYMMDD");
   dbconn.query(`DROP TABLE fdcovid${drTableDate}`, (error, result, fields) => {
     if (error) logger.info("Drop fdcovid error");
+    dbconn.query(
+      `DROP TABLE dismsg${drTableDate}`,
+      (error, result, fields) => {}
+    );
   });
 });
 

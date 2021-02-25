@@ -15,12 +15,12 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
   </head>
   <body>
-    <div class="main-section">
-      <% include ../views/header %> <% include ../views/navbar %>
+    <div class="main-section" id="main">
+      <% include ../views/navbar %>
       <div
         class="main-text"
         data-aos="fade-up"
-        data-aos-offset="250"
+        data-aos-offset="300"
         data-aos-delay="100"
         data-aos-duration="1000"
         data-aos-easing="ease-in-out"
@@ -40,6 +40,9 @@
     <% include ../views/fifthsection %>
 
     <img src="/images/chatbot.png" id="chatbotimg" width="20px" height="20px" />
+    <div>
+      <a href="#main"><img src="/images/upbtn.png" id="upbtn" /></a>
+    </div>
     <!-- <% include ../views/sixsection %> -->
     <% include ../views/homepagelink %>
     <div class="text-section">

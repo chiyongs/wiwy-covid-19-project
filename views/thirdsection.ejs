@@ -1,4 +1,5 @@
 <div class="thirdsection" id="thirdsection">
+  <h1>국외 발생동향</h1>
   <table class="style02">
     <tr>
       <th>나라</th>
@@ -7,12 +8,9 @@
     </tr>
     <% for(let i=0; i<180 ; i++) { %>
     <tr>
-      <td class="thstyle01" style="text-align: left;">
+      <td class="thstyle01" style="text-align: left">
         <%= i+1 %>
-        <img
-          src="../images/<%= i+1 %>.png"
-          style="width: 15px; height: 10px"
-        /> 
+        <img src="../images/<%= i+1 %>.png" style="width: 15px; height: 10px" />
         <%= nationNm[i] %>
       </td>
       <td class="thstyle01"><%= natDefCnt[i] %></td>

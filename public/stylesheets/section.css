@@ -2,9 +2,91 @@
   /* width: 100%; */
   margin-top: 100px;
   /* margin-bottom: 200px; */
-  height: 500px;
+  height: 700px;
   padding-right: 100px;
   padding-left: 100px;
+}
+
+.data {
+  display: flex;
+  height: auto;
+  width: auto;
+}
+
+.data div {
+  border-radius: 10px;
+  width: 300px;
+  height: 200px;
+  min-width: 200px;
+  margin: 10px 10px 10px 10px;
+  text-align: center;
+}
+
+.firstsection_coronaboard p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: aliceblue;
+}
+.firstsection_coronaboard span {
+  font-size: 50px;
+  color: aliceblue;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+#onebox {
+  background-color: rgb(49, 49, 168);
+  justify-content: center;
+}
+#onebox p {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+#datenum {
+  color: red;
+  font-size: 30px;
+  display: block;
+  font-weight: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+#twobox {
+  background-color: rgb(138, 58, 126);
+}
+#twobox p {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+#threebox {
+  background-color: rgb(104, 103, 109);
+}
+#threebox p {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+#fourbox {
+  background-color: rgb(39, 105, 94);
+}
+#fourbox p {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+h1 {
+  text-align: center;
+}
+
+.firstsection_coronaboard {
+  width: 50%;
+  height: 700px;
+  float: left;
+  box-sizing: border-box;
+  background-color: rgba(250, 249, 246, 0.973);
+  padding: 20px 70px 20px 70px;
+}
+
+.dailyCovidStatus {
+  width: 50%;
+  height: 700px;
+  float: left;
+  box-sizing: border-box;
+  background-color: rgb(234, 247, 217);
+  padding: 3vw 5vw 3vw 5vw;
 }
 
 .secondsection {
@@ -116,70 +198,11 @@
 
 .livenews {
   width: 90%;
-  height: 10%;
-  background-color: rgb(255, 237, 210);
+  height: 8%;
+  background-color: rgb(248, 239, 226);
   border-radius: 3px;
   box-shadow: 3px 3px 3px 3px gray;
   margin: 50px 30px 50px 30px;
-}
-
-table.coronaboard {
-  text-align: center;
-  line-height: 1.5;
-  border-radius: 10px;
-  border-left: 1px solid #ccc;
-  border-top: 3px solid #ccc;
-  margin: 0px 0px 0px 0px;
-  box-shadow: 5px 5px 5px 5px gray;
-  font-family: Verdana, Geneva, Arial, sans-serif;
-}
-
-table.coronaboard th {
-  width: 50px;
-  padding: 10px;
-  font-weight: bold;
-  vertical-align: top;
-  font-size: 20px;
-  background-color: #dbd7d4;
-  color: #6d6763;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  /* position: sticky;
-  top: 0px; */
-}
-
-table.coronaboard td {
-  width: 50px;
-  padding: 10px;
-  vertical-align: top;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
-
-#three td {
-  padding: 30px;
-}
-
-h1 {
-  text-align: center;
-}
-
-.firstsection_coronaboard {
-  width: 50%;
-  height: 500px;
-  float: left;
-  box-sizing: border-box;
-  background-color: rgb(250, 226, 226);
-  padding: 20px 70px 20px 70px;
-}
-
-.dailyCovidStatus {
-  width: 50%;
-  height: 500px;
-  float: left;
-  box-sizing: border-box;
-  background-color: rgb(234, 247, 217);
-  padding: 3vw 5vw 3vw 5vw;
 }
 
 .mapleft {
@@ -214,25 +237,28 @@ h1 {
   margin: 0 auto;
 }
 
-.div50 {
-  width: 50%;
-}
-
 .homepage {
   height: auto;
   padding-right: 100px;
   padding-left: 100px;
   padding-bottom: 50px;
+}
+
+.link {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .box {
   width: 70px;
   height: 23px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgb(255, 249, 215);
   transition: 1s;
   text-align: center;
   border: 2px solid black;
+  border-radius: 10px;
   margin: 10px 10px 10px 10px;
   font-size: 17px;
   font-weight: bold;
