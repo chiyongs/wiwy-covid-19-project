@@ -30,13 +30,16 @@
 }
 
 .youtube-section {
+  /* position: absolute; */
   float: left;
   background-color: white;
   border-bottom: 1px solid lightgray;
   /* width: 50%; */
   /* height: 150px; */
   height: 31%;
+  padding-left: 20%;
   padding: 0;
+  /* margin-left:50%; */
   margin: 2%;
 }
 
