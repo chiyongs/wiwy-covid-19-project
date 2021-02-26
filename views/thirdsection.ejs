@@ -1,5 +1,11 @@
 <div class="thirdsection" id="thirdsection">
-  <table class="style02">
+  <h1>국외 발생동향</h1>
+  <!-- <button id="spreadBtn01">펼치기</button> -->
+  <div style="text-align: center; margin-bottom: 3%;">
+  <button class="btn01" onclick="Javascript:LayerView();">국외 발생동향 보이기</button>
+  <button class="btn01" onclick="Javascript:LayerHiding();">국외 발생동향 숨기기</button>
+  </div>
+  <table class="style02" id="layderID" style="visibility: collapse;">
     <tr>
       <th>나라</th>
       <th>총 확진자</th>
@@ -7,12 +13,9 @@
     </tr>
     <% for(let i=0; i<180 ; i++) { %>
     <tr>
-      <td class="thstyle01" style="text-align: left;">
+      <td class="thstyle01" style="text-align: left">
         <%= i+1 %>
-        <img
-          src="../images/<%= i+1 %>.png"
-          style="width: 15px; height: 10px"
-        /> 
+        <img src="../images/<%= i+1 %>.png" style="width: 15px; height: 10px" />
         <%= nationNm[i] %>
       </td>
       <td class="thstyle01"><%= natDefCnt[i] %></td>
@@ -21,3 +24,21 @@
     <% } %>
   </table>
 </div>
+<script> 
+function LayerView(){
+  layderID.style.visibility="visible";
+}
+function LayerHiding(){
+  layderID.style.visibility="collapse";
+}
+$(document).ready(function(){ 
+  $("#spreadBtn01").click(function(){ 
+    if($(".style02").is(":visible")){ 
+      $(".style02").css("visibility", "collapse"); 
+    }
+    else{ 
+      $(".style02").css("visibility", "visible"); 
+      } 
+      }); 
+      }); 
+      </script>

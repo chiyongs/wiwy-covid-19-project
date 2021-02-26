@@ -2,28 +2,29 @@
   <h1>코로나 확진자 현황</h1>
   <div class="firstsection_coronaboard">
     <div class="livenews"></div>
-    <table class="coronaboard">
-      <tr id="one">
-        <th colspan="2">확진환자</th>
-        <th>격리해제</th>
-        <th>격리중</th>
-        <th>사망</th>
-      </tr>
-      <tr id="two">
-        <td>총 확진자</td>
-        <td>일별 확진자</td>
-        <td>누적</td>
-        <td>누적</td>
-        <td>누적</td>
-      </tr>
-      <tr id="three">
-        <td><%= defCnt %></td>
-        <td><%= incDec %></td>
-        <td><%= isolClearCnt %></td>
-        <td><%= isolIngCnt %></td>
-        <td><%= deathCnt %></td>
-      </tr>
-    </table>
+    <div class="databox">
+      <div class="data">
+        <div id="onebox">
+          <p align="center">확진환자</p>
+          <span><%= defCnt %></span>
+          <span id="datenum">+ <%= incDec %></span>
+        </div>
+        <div id="twobox">
+          <p align="center">격리해제</p>
+          <span><%= isolClearCnt %></span>
+        </div>
+      </div>
+      <div class="data">
+        <div id="threebox">
+          <p align="center">격리중</p>
+          <span><%= isolIngCnt %></span>
+        </div>
+        <div id="fourbox">
+          <p align="center">사망</p>
+          <span><%= deathCnt %></span>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="dailyCovidStatus">
