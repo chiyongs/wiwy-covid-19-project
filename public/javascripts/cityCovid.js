@@ -43,7 +43,6 @@ function renderDoughnut() {
     }
   }
   refinedList.push(temp);
-  console.log(refinedList);
   var myChart = new Chart(cityDnCtx, {
     type: "doughnut",
     data: {

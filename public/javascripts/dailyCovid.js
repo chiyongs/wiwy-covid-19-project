@@ -1,8 +1,12 @@
 const inpTotal = document.getElementById("js-dailyCovid");
+const splitTotalData = inpTotal.value.split(",");
 const totalCovidCtx = document
   .getElementById("dailyCovidChart")
   .getContext("2d");
 const date = new Date();
+const zeroMonth =
+  new Date(date.getFullYear(), date.getMonth(), date.getDate() - 7).getMonth() +
+  1;
 const firstMonth =
   new Date(date.getFullYear(), date.getMonth(), date.getDate() - 6).getMonth() +
   1;
@@ -51,6 +55,11 @@ const sixthDate = new Date(
   date.getMonth(),
   date.getDate() - 1
 ).getDate();
+const zeroDate = new Date(
+  date.getFullYear(),
+  date.getMonth(),
+  date.getDate() - 7
+).getDate();
 
 const dateInfo = new Date().getDate();
 const monthInfo = new Date().getMonth() + 1;
@@ -65,20 +74,11 @@ function checkMonth(monthTemp) {
   return checkedMonthInfo;
 }
 
-function renderChart() {
-  const splitTotalData = inpTotal.value.split(",");
+function renderChart(viewDate) {
   var myChart = new Chart(totalCovidCtx, {
     type: "line",
     data: {
-      labels: [
-        `${checkMonth(firstMonth)}.${firstDate}`,
-        `${checkMonth(secondMonth)}.${secondDate}`,
-        `${checkMonth(thirdMonth)}.${thirdDate}`,
-        `${checkMonth(fourthMonth)}.${fourthDate}`,
-        `${checkMonth(fifthMonth)}.${fifthDate}`,
-        `${checkMonth(sixthMonth)}.${sixthDate}`,
-        `${checkMonth(monthInfo)}.${dateInfo}`,
-      ],
+      labels: viewDate,
       datasets: [
         {
           label: "대한민국 일별 확진자",
@@ -120,7 +120,28 @@ function renderChart() {
 }
 
 function init() {
-  renderChart();
+  console.log(splitTotalData);
+  let viewDate = [
+    `${checkMonth(firstMonth)}.${firstDate}`,
+    `${checkMonth(secondMonth)}.${secondDate}`,
+    `${checkMonth(thirdMonth)}.${thirdDate}`,
+    `${checkMonth(fourthMonth)}.${fourthDate}`,
+    `${checkMonth(fifthMonth)}.${fifthDate}`,
+    `${checkMonth(sixthMonth)}.${sixthDate}`,
+    `${checkMonth(monthInfo)}.${dateInfo}`,
+  ];
+  if (splitTotalData[6] == undefined) {
+    viewDate = [
+      `${checkMonth(zeroMonth)}.${zeroDate}`,
+      `${checkMonth(firstMonth)}.${firstDate}`,
+      `${checkMonth(secondMonth)}.${secondDate}`,
+      `${checkMonth(thirdMonth)}.${thirdDate}`,
+      `${checkMonth(fourthMonth)}.${fourthDate}`,
+      `${checkMonth(fifthMonth)}.${fifthDate}`,
+      `${checkMonth(sixthMonth)}.${sixthDate}`,
+    ];
+  }
+  renderChart(viewDate);
 }
 
 init();

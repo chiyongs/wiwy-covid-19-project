@@ -39,6 +39,17 @@ router.get("/", (req, res, next) => {
         citySelect = `SELECT defCnt, incDec FROM covid${curMonth} WHERE seq >= '${
           todaySeq - 19
         }' and gubun != '합계'`;
+        if (checkDay <= "06") {
+          dailyCovidSql = `SELECT incDec FROM covid${lastMonth} WHERE gubun = '합계' and seq >='${
+            seqNum - 19
+          }' UNION SELECT incDec FROM covid${curMonth} WHERE gubun = '합계' and seq >= '${
+            seqNum - 19
+          }'`;
+        } else {
+          dailyCovidSql = `SELECT incDec FROM covid${curMonth} WHERE gubun = '합계' and seq >='${
+            seqNum - 19
+          }'`;
+        }
       }
     }
   );
@@ -58,6 +69,10 @@ router.get("/", (req, res, next) => {
   let disMsgSelect = `SELECT * FROM dismsg`;
   let diststepSelect = `SELECT * FROM diststep`;
   dbconn.query(dailyCovidSql, (error, dailyResults, fields) => {
+    if (error) throw error;
+    console.log(dailyCovidSql);
+    console.log(dailyResults);
+    // console.log(funcConv.incDecConv(dailyResults));
     dbconn.query(todaySelect, (error, totalResults, fields) => {
       dbconn.query(citySelect, (error, cityResults, fields) => {
         dbconn.query(diststepSelect, (error, diststepResults, fields) => {
@@ -145,5 +160,7 @@ router.get("/", (req, res, next) => {
     });
   });
 });
+
+dbconn.close;
 
 module.exports = router;
