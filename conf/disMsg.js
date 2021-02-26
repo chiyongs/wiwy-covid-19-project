@@ -37,26 +37,26 @@ function getDisMsg() {
       let msg = JSON.parse(body);
       if (msg.DisasterMsg[0].head[2].RESULT.resultCode == "INFO-0") {
         dbconn.query(
-          `SELECT MAX(sn) FROM dismsg`,
+          `SELECT MAX(sn) FROM dismsg${curDate}`,
           (error, snResults, fields) => {
             if (snResults == msg.DisasterMsg[1].row[0].md101_sn) {
               logger.info("Same sn dismsg exists");
               return;
             } else {
-              for (
-                let i = 0;
-                i < Object.keys(msg.DisasterMsg[1].row).length;
-                i++
-              ) {
-                var parMsg = msg.DisasterMsg[1].row[i];
+              // for (
+              //   let i = 0;
+              //   i < Object.keys(msg.DisasterMsg[1].row).length;
+              //   i++
+              // ) {
+              var parMsg = msg.DisasterMsg[1].row[0];
 
-                dbconn.query(
-                  `INSERT INTO dismsg${curDate}(sn,msg,cr_date,loc_name) values ('${parMsg.md101_sn}','${parMsg.msg}','${parMsg.create_date}','${parMsg.location_name}')`,
-                  (error, results, fields) => {
-                    if (error) throw error;
-                  }
-                );
-              }
+              dbconn.query(
+                `INSERT INTO dismsg${curDate}(sn,msg,cr_date,loc_name) values ('${parMsg.md101_sn}','${parMsg.msg}','${parMsg.create_date}','${parMsg.location_name}')`,
+                (error, results, fields) => {
+                  if (error) throw error;
+                }
+              );
+              // }
               logger.info("Dismsg updated");
             }
             // }
