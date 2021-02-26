@@ -49,6 +49,7 @@ function getDisMsg() {
               //   i++
               // ) {
               var parMsg = msg.DisasterMsg[1].row[0];
+              console.log(parMsg);
 
               dbconn.query(
                 `INSERT INTO dismsg${curDate}(sn,msg,cr_date,loc_name) values ('${parMsg.md101_sn}','${parMsg.msg}','${parMsg.create_date}','${parMsg.location_name}')`,
