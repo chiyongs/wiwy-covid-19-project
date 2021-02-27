@@ -78,7 +78,7 @@ const fetchForeignData = schedule.scheduleJob("30 0 */1 * * *", () => {
 });
 
 // fdcovid table create on Monday 0 0 0
-const crForeignData = schedule.scheduleJob("5 0 0 * * *", () => {
+const crForeignData = schedule.scheduleJob("0 0 0 * * *", () => {
   let crTableDate = moment().format("YYYYMMDD");
   dbconn.query(
     `CREATE TABLE fdcovid${crTableDate} (
