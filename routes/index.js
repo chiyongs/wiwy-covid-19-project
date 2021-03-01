@@ -67,27 +67,25 @@ router.get("/", (req, res, next) => {
       }
     }
   );
-  let disMsgSelect = `SELECT * FROM dismsg`;
+  let disMsgSelect = `SELECT * FROM dismsg${curForeign} order by sn desc`;
   let diststepSelect = `SELECT * FROM diststep`;
   dbconn.query(dailyCovidSql, (error, dailyResults, fields) => {
     if (error) throw error;
-    console.log(dailyCovidSql);
-    console.log(dailyResults);
-    console.log(seqNum);
     // console.log(funcConv.incDecConv(dailyResults));
     dbconn.query(todaySelect, (error, totalResults, fields) => {
       dbconn.query(citySelect, (error, cityResults, fields) => {
         dbconn.query(diststepSelect, (error, diststepResults, fields) => {
           dbconn.query(disMsgSelect, (error, msgResults, fields) => {
+            console.log(disMsgSelect);
             dbconn.query(foreignSelect, (error, foreignResults, fields) => {
               res.render("index.html", {
                 nationNm: funcConv.nationNmConv(foreignResults),
                 natDefCnt: funcConv.natDefCntConv(foreignResults),
                 natDeathCnt: funcConv.natDeathCntConv(foreignResults),
 
-                // disMsg: funcConv.msgConv(msgResults),
-                // crDate: funcConv.crDateConv(msgResults),
-                // locName: funcConv.locNameConv(msgResults),
+                disMsg: funcConv.msgConv(msgResults)[0],
+                crDate: funcConv.crDateConv(msgResults)[0],
+                locName: funcConv.locNameConv(msgResults)[0],
 
                 dailyData: funcConv.incDecConv(dailyResults),
                 cityCount: funcConv.defCntConv(cityResults),
