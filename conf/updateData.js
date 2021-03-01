@@ -122,6 +122,6 @@ function updateData(checkDate, callback) {
   );
 }
 
-// updateData("20210222", () => {});
+// updateData("20210301", () => {});
 
 module.exports = updateData;

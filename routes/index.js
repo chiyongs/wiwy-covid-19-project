@@ -40,6 +40,7 @@ router.get("/", (req, res, next) => {
           todaySeq - 19
         }' and gubun != '합계'`;
         if (checkDay <= "06") {
+          let lastMonth = moment().subtract("1", "M").format("YYYYMM");
           dailyCovidSql = `SELECT incDec FROM covid${lastMonth} WHERE gubun = '합계' and seq >='${
             seqNum - 19
           }' UNION SELECT incDec FROM covid${curMonth} WHERE gubun = '합계' and seq >= '${
@@ -72,6 +73,7 @@ router.get("/", (req, res, next) => {
     if (error) throw error;
     console.log(dailyCovidSql);
     console.log(dailyResults);
+    console.log(seqNum);
     // console.log(funcConv.incDecConv(dailyResults));
     dbconn.query(todaySelect, (error, totalResults, fields) => {
       dbconn.query(citySelect, (error, cityResults, fields) => {
