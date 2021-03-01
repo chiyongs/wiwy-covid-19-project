@@ -70,6 +70,7 @@ const funcConv = {
     return resultList;
   },
   msgConv: (result) => {
+    console.log(typeof result);
     let resultList = [];
     for (let i = 0; i < result.length; i++) {
       resultList[i] = result[i].msg;

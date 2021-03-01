@@ -40,6 +40,7 @@ router.get("/", (req, res, next) => {
           todaySeq - 19
         }' and gubun != '합계'`;
         if (checkDay <= "06") {
+          let lastMonth = moment().subtract("1", "M").format("YYYYMM");
           dailyCovidSql = `SELECT incDec FROM covid${lastMonth} WHERE gubun = '합계' and seq >='${
             seqNum - 19
           }' UNION SELECT incDec FROM covid${curMonth} WHERE gubun = '합계' and seq >= '${
@@ -66,26 +67,25 @@ router.get("/", (req, res, next) => {
       }
     }
   );
-  let disMsgSelect = `SELECT * FROM dismsg`;
+  let disMsgSelect = `SELECT * FROM dismsg${curForeign} order by sn desc`;
   let diststepSelect = `SELECT * FROM diststep`;
   dbconn.query(dailyCovidSql, (error, dailyResults, fields) => {
     if (error) throw error;
-    console.log(dailyCovidSql);
-    console.log(dailyResults);
     // console.log(funcConv.incDecConv(dailyResults));
     dbconn.query(todaySelect, (error, totalResults, fields) => {
       dbconn.query(citySelect, (error, cityResults, fields) => {
         dbconn.query(diststepSelect, (error, diststepResults, fields) => {
           dbconn.query(disMsgSelect, (error, msgResults, fields) => {
+            console.log(disMsgSelect);
             dbconn.query(foreignSelect, (error, foreignResults, fields) => {
               res.render("index.html", {
                 nationNm: funcConv.nationNmConv(foreignResults),
                 natDefCnt: funcConv.natDefCntConv(foreignResults),
                 natDeathCnt: funcConv.natDeathCntConv(foreignResults),
 
-                // disMsg: funcConv.msgConv(msgResults),
-                // crDate: funcConv.crDateConv(msgResults),
-                // locName: funcConv.locNameConv(msgResults),
+                disMsg: funcConv.msgConv(msgResults)[0],
+                crDate: funcConv.crDateConv(msgResults)[0],
+                locName: funcConv.locNameConv(msgResults)[0],
 
                 dailyData: funcConv.incDecConv(dailyResults),
                 cityCount: funcConv.defCntConv(cityResults),
