@@ -3,20 +3,16 @@ const router = express.Router();
 const dbConObj = require("../conf/db_info");
 const dbconn = dbConObj.init();
 let moment = require("moment");
-// const calculateSeq = require("../conf/calculateSeq");
 const calToday = require("../conf/calToday");
 const funcConv = require("../conf/funcConv");
 const calForeign = require("../conf/calForeign");
 const calculateSeq = require("../conf/calculateSeq");
-// const disMsg = require("../conf/disMsg");
 
 const update_info = require("../conf/update_info");
-/* GET home page. */
 router.get("/", (req, res, next) => {
   let curMonth = moment().format("YYYYMM");
   let curForeign = moment().format("YYYYMMDD");
   let checkDay = moment().format("DD");
-  // const msgObj = disMsg();
   let foreignSeq = calForeign();
   let seqNum = calculateSeq();
   let dailyCovidSql = `SELECT incDec FROM covid${curMonth} WHERE gubun = '합계' and seq >= '${seqNum}'`;

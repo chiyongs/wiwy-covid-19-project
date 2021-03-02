@@ -26,18 +26,14 @@ router.get("/:searchTitle", (req, res, next) => {
     "http://www.google.com/search",
     { q: filteredTitle },
     (err, $, response, body) => {
-      // console.log(body); -> 제대로 출력이 되는지 확인하기 위해서 작성
-      //div yuRUbf의 클래스 안에있는 것들 서치
       let aList = $("div.yuRUbf").children("a");
       let h3List = aList.children("h3");
       let subList = $("div.IsZvec").children("div").children("span");
       let related = $("div.dZtbP").find("a.k8XOCe");
+
       for (let i = 0; i < aList.length; i++) {
         searchResult.lstOfText.push($(h3List[i]).text());
         searchResult.lstOfLink.push($(aList[i]).attr("href"));
-        //   linkList[i] = $(aList[i]).attr("href");
-        //   console.log($(aList[i]).text()); //yuRUbf안에 있는 텍스트 출력s
-        //   console.log($(aList[i]).attr("href")); //링크 출력s\
       }
       for (let i = 0; i < subList.length; i++) {
         searchResult.lstOfSub.push($(subList[i]).text());
@@ -45,8 +41,7 @@ router.get("/:searchTitle", (req, res, next) => {
       for (let i = 0; i < related.length; i++) {
         searchResult.lstOfRelated.push($(related[i]).text());
       }
-      //   return searchResult;
-      //   res.send(searchResult);
+
       res.render("searchView", {
         searchResult: searchResult,
         keyword: filteredTitle,
