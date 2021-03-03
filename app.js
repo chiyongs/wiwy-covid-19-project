@@ -5,8 +5,6 @@ const cookieParser = require("cookie-parser");
 const helmet = require("helmet");
 const logger = require("./conf/winston");
 
-const update_info = require("./conf/update_info");
-
 const indexRouter = require("./routes/index");
 const searchRouter = require("./routes/search");
 

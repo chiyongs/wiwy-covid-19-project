@@ -2,7 +2,7 @@ const fs = require("fs");
 const request = require("request");
 let moment = require("moment");
 var convert = require("xml-js");
-var update_info = require("./update_info");
+
 const url =
   "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson"; /*URL*/
 

@@ -8,7 +8,6 @@ const funcConv = require("../conf/funcConv");
 const calForeign = require("../conf/calForeign");
 const calculateSeq = require("../conf/calculateSeq");
 
-const update_info = require("../conf/update_info");
 router.get("/", (req, res, next) => {
   let curMonth = moment().format("YYYYMM");
   let curForeign = moment().format("YYYYMMDD");
