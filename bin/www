@@ -3,21 +3,21 @@
 /**
  * Module dependencies.
  */
-const schedule = require("node-schedule");
+// const schedule = require("node-schedule");
 var app = require("../app");
 var debug = require("debug")("wiwy-covid19-project:server");
 var http = require("http");
-const updateData = require("../conf/updateData");
-const foreignData = require("../conf/foreignData");
-let moment = require("moment");
-let curDate = moment().format("YYYYMMDD");
-let logger = require("../conf/winston");
-const dbConObj = require("../conf/db_info");
-const dbconn = dbConObj.init();
-const calToday = require("../conf/calToday");
-const calForeign = require("../conf/calForeign");
-const getDisMsg = require("../conf/disMsg");
-const calculateSeq = require("../conf/calculateSeq");
+// const updateData = require("../conf/updateData");
+// const foreignData = require("../conf/foreignData");
+// let moment = require("moment");
+// let curDate = moment().format("YYYYMMDD");
+// let logger = require("../conf/winston");
+// const dbConObj = require("../conf/db_info");
+// const dbconn = dbConObj.init();
+// const calToday = require("../conf/calToday");
+// const calForeign = require("../conf/calForeign");
+// const getDisMsg = require("../conf/disMsg");
+// const calculateSeq = require("../conf/calculateSeq");
 
 /**
  * Get port from environment and store in Express.
@@ -40,96 +40,96 @@ server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
 
-let abc = calculateSeq();
-console.log(abc);
-const fetchData = schedule.scheduleJob("0 0 */1 * * *", () => {
-  let curMonth = moment().format("YYYYMM");
-  let curSeq = calToday();
-  dbconn.query(
-    `SELECT seq FROM covid${curMonth} WHERE seq >='${curSeq}'`,
-    (error, result, fields) => {
-      if (result[0]) {
-        logger.info("Did already");
-      } else {
-        updateData(curDate, (key) => {});
-        logger.info("Updating complete");
-      }
-    }
-  );
-  dbconn.close;
-});
+// let abc = calculateSeq();
+// console.log(abc);
+// const fetchData = schedule.scheduleJob("0 0 */1 * * *", () => {
+//   let curMonth = moment().format("YYYYMM");
+//   let curSeq = calToday();
+//   dbconn.query(
+//     `SELECT seq FROM covid${curMonth} WHERE seq >='${curSeq}'`,
+//     (error, result, fields) => {
+//       if (result[0]) {
+//         logger.info("Did already");
+//       } else {
+//         updateData(curDate, (key) => {});
+//         logger.info("Updating complete");
+//       }
+//     }
+//   );
+//   dbconn.close;
+// });
 
-const fetchForeignData = schedule.scheduleJob("30 0 */1 * * *", () => {
-  let curMonth = moment().format("YYYYMMDD");
-  let curSeq = calForeign();
-  dbconn.query(
-    `SELECT seq FROM fdcovid${curMonth} WHERE seq ='${curSeq + 189}'`,
-    (error, result, fields) => {
-      if (result[0]) {
-        logger.info("Did already");
-      } else {
-        foreignData(curDate, (key) => {});
-        logger.info("Foreign complete");
-      }
-    }
-  );
-  dbconn.close;
-});
+// const fetchForeignData = schedule.scheduleJob("30 0 */1 * * *", () => {
+//   let curMonth = moment().format("YYYYMMDD");
+//   let curSeq = calForeign();
+//   dbconn.query(
+//     `SELECT seq FROM fdcovid${curMonth} WHERE seq ='${curSeq + 189}'`,
+//     (error, result, fields) => {
+//       if (result[0]) {
+//         logger.info("Did already");
+//       } else {
+//         foreignData(curDate, (key) => {});
+//         logger.info("Foreign complete");
+//       }
+//     }
+//   );
+//   dbconn.close;
+// });
 
-// fdcovid table create on Monday 0 0 0
-const crForeignData = schedule.scheduleJob("0 0 0 * * *", () => {
-  let crTableDate = moment().format("YYYYMMDD");
-  dbconn.query(
-    `CREATE TABLE fdcovid${crTableDate} (
-      seq char(5) primary key,
-      nationNm varchar(30),
-      natDefCnt varchar(15),
-      natDeathCnt varchar(15)
-      )`,
-    (error, result, fields) => {
-      if (error) logger.info("Create fdcovid error");
-      dbconn.query(
-        `create table dismsg${crTableDate} (
-        sn char(6),
-          msg varchar(400),
-          cr_date char(20),
-          loc_name char(30)
-      )`,
-        (error, result, fields) => {
-          dbconn.query(
-            `ALTER TABLE fdcovid${crTableDate} convert to charset utf8`,
-            (error, result, fields) => {
-              dbconn.query(
-                `ALTER TABLE dismsg${crTableDate} convert to charset utf8`,
-                (error, result, fields) => {}
-              );
-            }
-          );
-        }
-      );
-    }
-  );
-  dbconn.close;
-});
+// // fdcovid table create on Monday 0 0 0
+// const crForeignData = schedule.scheduleJob("0 0 0 * * *", () => {
+//   let crTableDate = moment().format("YYYYMMDD");
+//   dbconn.query(
+//     `CREATE TABLE fdcovid${crTableDate} (
+//       seq char(5) primary key,
+//       nationNm varchar(30),
+//       natDefCnt varchar(15),
+//       natDeathCnt varchar(15)
+//       )`,
+//     (error, result, fields) => {
+//       if (error) logger.info("Create fdcovid error");
+//       dbconn.query(
+//         `create table dismsg${crTableDate} (
+//         sn char(6),
+//           msg varchar(400),
+//           cr_date char(20),
+//           loc_name char(30)
+//       )`,
+//         (error, result, fields) => {
+//           dbconn.query(
+//             `ALTER TABLE fdcovid${crTableDate} convert to charset utf8`,
+//             (error, result, fields) => {
+//               dbconn.query(
+//                 `ALTER TABLE dismsg${crTableDate} convert to charset utf8`,
+//                 (error, result, fields) => {}
+//               );
+//             }
+//           );
+//         }
+//       );
+//     }
+//   );
+//   dbconn.close;
+// });
 
-const drForeignData = schedule.scheduleJob("0 0 0 * * *", () => {
-  let drTableDate = moment().subtract(2, "days").format("YYYYMMDD");
-  dbconn.query(`DROP TABLE fdcovid${drTableDate}`, (error, result, fields) => {
-    if (error) logger.info("Drop fdcovid error");
-    dbconn.query(
-      `DROP TABLE dismsg${drTableDate}`,
-      (error, result, fields) => {}
-    );
-  });
-});
+// const drForeignData = schedule.scheduleJob("0 0 0 * * *", () => {
+//   let drTableDate = moment().subtract(2, "days").format("YYYYMMDD");
+//   dbconn.query(`DROP TABLE fdcovid${drTableDate}`, (error, result, fields) => {
+//     if (error) logger.info("Drop fdcovid error");
+//     dbconn.query(
+//       `DROP TABLE dismsg${drTableDate}`,
+//       (error, result, fields) => {}
+//     );
+//   });
+// });
 
-const fetchMsg = schedule.scheduleJob("0 */5 * * * *", () => {
-  getDisMsg();
-});
+// const fetchMsg = schedule.scheduleJob("0 */5 * * * *", () => {
+//   getDisMsg();
+// });
 
-const refreshUpdate = schedule.scheduleJob("0 5 0 * * *", () => {
-  update_info.clrUpdate();
-});
+// const refreshUpdate = schedule.scheduleJob("0 5 0 * * *", () => {
+//   update_info.clrUpdate();
+// });
 /**
  * Normalize a port into a number, string, or false.
  */
