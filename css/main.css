@@ -1,0 +1,111 @@
+html {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+}
+body {
+  overflow-x: hidden;
+  color: rgb(29, 29, 31);
+  letter-spacing: -0.05em;
+  background: white;
+}
+p {
+  line-height: 1.6;
+}
+a {
+  color: rgb(29, 29, 31);
+  text-decoration: none;
+}
+body.before-load {
+  overflow: hidden;
+}
+
+.container {
+  /* iphone에서 가로스크롤방지 */
+  overflow-x: hidden;
+}
+.before-load .container {
+  display: none;
+}
+
+.before-load .loading {
+  opacity: 1;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: white;
+  transition: 0.5s;
+  opacity: 0;
+}
+
+@keyframes loading-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-circle {
+  width: 54px;
+  height: 54px;
+  animation: loading-spin 3s infinite;
+}
+
+@keyframes loading-circle-ani {
+  0% {
+    stroke-dashoffset: 157;
+  }
+  75% {
+    stroke-dashoffset: -147;
+  }
+  100% {
+    stroke-dashoffset: -157;
+  }
+}
+
+.loading-circle circle {
+  stroke: black;
+  stroke-width: 4;
+  /* getTotalLength()로 stroke의 길이를 얻어 올 수 있음 */
+  stroke-dasharray: 157;
+  stroke-dashoffset: -157;
+  fill: transparent;
+  animation: loading-circle-ani 1s infinite;
+}
+
+.container {
+  /* iphone에서 가로스크롤방지 */
+  overflow-x: hidden;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 44px;
+  padding: 0 1rem;
+  z-index: 10;
+}
+.navbar-links {
+  height: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#content-section-1 {
+  background-color: aquamarine;
+}
+
+@media (min-width: 1024px) {
+}
