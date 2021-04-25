@@ -35,7 +35,6 @@ a {
   height: 100%;
   margin-top: 100px;
   /* margin-bottom: 200px; */
-
   background-color: teal;
 }
 .content-section h1 {
@@ -175,9 +174,14 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.3rem;
+  font-size: 0.05rem;
 }
-
+.navbar-links a:not(.navbar-logo) {
+  margin-left: 10em;
+}
+.navbar-logo {
+  margin-right: auto;
+}
 .covid-logo {
   left: 50%;
   top: 30%;
@@ -282,15 +286,61 @@ a {
   width: 90vw;
   height: 90vw;
 }
+.tabel {
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 14px 12px rgba(32, 32, 32, 0.3);
+  background: #e0dfdf;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.tabel th {
+  padding: 12px 20px;
+  /* background: #ba68c8; */
+  color: rgb(90, 90, 90);
+  text-transform: uppercase;
+  font-family: "Noto Sans KR", sans-serif;
+}
+.tabel thead {
+  background: #ffffff;
+}
+
+.tabel td {
+  width: 349px;
+  padding: 10px;
+  vertical-align: middle;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background-color: white;
+  font-size: 12px;
+}
+.th-1 {
+  display: flex;
+  justify-content: left;
+  padding-left: 5vw;
+}
 @media (min-width: 1024px) {
+  .navbar-links a:not(.navbar-logo) {
+    margin-left: 3em;
+  }
+  .navbar-logo {
+    margin-right: auto;
+  }
   .navbar-links {
     height: 100%;
     max-width: 1000px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .scroll-section {
     position: relative;
@@ -379,6 +429,46 @@ a {
     background-color: rgb(65, 3, 65);
     width: 40vw;
     height: 40vw;
+  }
+  .tabel {
+    left: 50%;
+    top: 50%;
+    width: 60%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 14px 12px rgba(32, 32, 32, 0.3);
+    background: #e0dfdf;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 50px;
+  }
+
+  .tabel th {
+    padding: 12px 20px;
+    /* background: #ba68c8; */
+    color: rgb(90, 90, 90);
+    text-transform: uppercase;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+  .tabel thead {
+    background: #ffffff;
+  }
+
+  .tabel td {
+    width: 349px;
+    padding: 10px;
+    vertical-align: middle;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: white;
+    font-size: 12px;
+  }
+  .th-1 {
+    display: flex;
+    justify-content: left;
+    padding-left: 5vw;
   }
 }
 
